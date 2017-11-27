@@ -1,6 +1,6 @@
 ### Description
 
-This repository is an example of using multer's custom storage engine
+[This repository](https://github.com/kishe89/MulterObjectStorageEngine) is an example of using multer's custom storage engine
 
 this code is ./util/ObjectStorageEngine.js
 It is Usable Custom Storage Engine for multer
@@ -53,4 +53,4 @@ module.exports = function (opts) {
 `node ./bin/www`
 
 ### License
-[License](LICENSE)
+[License](../LICENSE/LICENSE)
