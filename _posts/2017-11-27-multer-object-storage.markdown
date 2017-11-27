@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "댓츠잇에서의 경력"
+title:  "Node js & ObjectStroage(openstack) & multer"
 date:   2017-11-27 22:08:43
 author: 김지운
 cover:  "/assets/instacode.png"
