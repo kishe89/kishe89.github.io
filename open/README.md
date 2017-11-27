@@ -4,6 +4,7 @@ This repository is an example of using multer's custom storage engine
 
 this code is ./util/ObjectStorageEngine.js
 It is Usable Custom Storage Engine for multer
+
 ```javascript 1.8
 function ObjectStorage (opts) {
     this.getDestination = (opts.destination)
@@ -46,6 +47,7 @@ module.exports = function (opts) {
     return new ObjectStorage(opts)
 }
 ```
+
 ### Usage
 
 `node ./bin/www`
