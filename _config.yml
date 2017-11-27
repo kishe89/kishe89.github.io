@@ -65,12 +65,14 @@ social:
     url: https://github.com/kishe89
     desc: Fork me on GitHub
     share: false
+
   - name: Facebook
-      icon: facebook
-      username: thebencentra
-      url: https://www.facebook.com/profile.php?id=100008052494285
-      desc: Friend me on Facebook
-      share: true
+    icon: facebook
+    username: thebencentra
+    url: https://www.facebook.com/profile.php?id=100008052494285
+    desc: Friend me on Facebook
+    share: true
+
 # Social sharing protocols
 # These are for automatically generating sharing metadata for FB and Twitter
 # OS Protocol is for sharing the source of your site, if you're interested. For more, see osprotocol.com
