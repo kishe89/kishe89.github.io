@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "댓츠잇에서의 경력"
 date:   2017-11-27 20:48:00
-author: Ben Centra
+author: 김지운
 cover:  "/assets/instacode.png"
 ---
 
@@ -10,6 +10,7 @@ cover:  "/assets/instacode.png"
 
 - 직위 : 사원
 - 업무 : 클라이언트, 서버 시스템 설계, 데이터 모델링, REST API작업, 클라이언트 UI작업, 클라이언트 로직 작업, Util 프로그램 작성(QR코드 생성기, Excel to json Converter, png to pgm Converter)
+
 ---
 
 ### 프로젝트(위치 기반 스탬프투어)
