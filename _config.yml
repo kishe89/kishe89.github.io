@@ -50,6 +50,10 @@ jekyll-archives:
 descriptions:
   - cat: kishe89
     desc: "Posts describing my techniques story"
+  - cat: Jekyll
+      desc: "Posts describing my techniques story"
+  - cat: dummy
+      desc: "Posts describing my techniques story"
 
 # Social icons and sharing options
 #
