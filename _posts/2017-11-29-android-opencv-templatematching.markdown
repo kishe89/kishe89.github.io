@@ -5,9 +5,11 @@ date:   2017-11-29 15:46:00
 author: 김지운
 cover:  "/assets/instacode.png"
 ---
+
 android를 이용한 영상처리에 관심이 있어서 공부용으로 feature matching 과 template matching 을 해보았는데 feature matching 짜놓은 코드는
 저장소가 날라가면서 사라져 버려서 템플릿 매칭코드만이 남았다. ㅜ.ㅜ 백업 잘해야지...
-{% highlight javascript %}
+
+{% highlight c %}
 #include <jni.h>
 #include <string>
 #include <opencv2/core/core.hpp>
