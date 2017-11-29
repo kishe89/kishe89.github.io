@@ -7,7 +7,7 @@ permalink: /about/
 <img src="{{ site.baseurl }}/assets/profile-placeholder.jpeg" title="Profile Picture" class="profile">
 
 #### 이름 - 김지운 
-#####나이 - 29세
+##### 나이 - 29세
 
 - 순천대학교 졸업
 - 댓츠잇 개발자로 근무했었음(2015-09-01 ~ 2017-11-31)
