@@ -1,0 +1,103 @@
+---
+layout: post
+title:  "Animation With lottie"
+date:   2017-12-09 21:38:00
+author: 김지운
+cover:  "/assets/instacode.png"
+---
+
+[lottie][lottie]는 airbnb에서 공개한 android, ios, web(react-native)용 애니메이션 라이브러이다.
+
+각 플랫폼 별 깃헙 레파지토리는 아래와 같다.
+
+[lottie-Document][lottie-Document]는 API에 대한 상세 내용 및 디자인 가이드 문서가 있다.
+
+|language|repository|
+|---|---|
+|android|[lottie-android][lottie-android]|
+|ios|[lottie-ios][lottie-ios]|
+|react-native|[lottie-react-native][lottie-react-native]|
+
+디자이너가 After Effects의 확장 플러그인인 Bodymovin을 사용해서 animation을 추출하면 lottie에서 사용할 수 있는
+
+json형태의 데이터를 뽑을 수 있는데 이를 렌더할 수 있는 뷰를 제공하는 라이브러리이다.
+
+개발자가 한땀한담 캔버스에 그리거나 혹은 대용량의 프레임용 리소스를 패키지에 포함하지 않더라도 깔끔한 애니메이션을
+뽑을 수 있다.
+
+물론 모든 After Effects의 기능을 활용 가능하진 않지만 최대한 지원 가능하도록 한다니 기대를 가져본다.
+
+Android를 기준으로 코드를 보면 일단 gradle에 아래와 같이 dependency를 설정한다.
+
+```
+compile 'com.airbnb.android:lottie:2.3.0'
+```
+
+## test_layout.xml
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/standard_background"
+    tools:context="com.kmlwriter.kjw.myway.SplashActivity">
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/splash_animation_view"
+        app:lottie_fileName="world_locations.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        />
+</RelativeLayout>
+```
+
+android 네임스페이스에 있는 속성들을 제외하고 test_layout.xml을 보면
+
+lottie_fileName : 애니메이션에 사용할 json파일 이름(asset에 추가된)
+
+lottie_autoPlay : true or false로 자동 재생될건지에 대한 속성이다.
+
+lottie_loop : true or false로 애니메이션을 반복할지에 대한 속성이다.
+
+위 3가지 속성 외에도 lottie_progress, lottie_scale, ... 이 있다.
+
+당연하게도 해당 속성들에 대한 접근 API도 제공한다.
+
+```java
+LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation_view);
+animationView.setAnimation("hello-world.json");
+animationView.loop(true);
+animationView.playAnimation();
+```
+와 같이 실행중 애니메이션 변경도 가능하며 반복, 재생, 재생속도 조절등 다양한 기능을 제공한다.
+
+{% highlight java %}
+animationView.addAnimatorUpdateListener((animation) -> {
+    // Do something.
+});
+animationView.playAnimation();
+...
+if (animationView.isAnimating()) {
+    // Do something.
+}
+...
+animationView.setProgress(0.5f);
+...
+// Custom animation speed or duration.
+ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f)
+    .setDuration(500);
+animator.addUpdateListener(animation -> {
+    animationView.setProgress(animation.getAnimatedValue());
+});
+animator.start();
+...
+animationView.cancelAnimation();
+{% endhighlight %}
+
+[lottie-Document]:http://airbnb.io/lottie/
+[lottie-react-native]:https://github.com/airbnb/lottie-react-native
+[lottie-ios]:https://github.com/airbnb/lottie-ios
+[lottie-android]:https://github.com/airbnb/lottie-android
+[lottie]:https://airbnb.design/lottie/
