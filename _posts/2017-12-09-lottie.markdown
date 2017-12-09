@@ -73,7 +73,7 @@ animationView.playAnimation();
 ```
 와 같이 실행중 애니메이션 변경도 가능하며 반복, 재생, 취소등이 가능하며 ValueAnimator객채를 이용하여 재생속도 조절등 다양한 기능을 제공한다.
 
-{% highlight java %}
+```java
 animationView.addAnimatorUpdateListener((animation) -> {
     // Do something.
 });
@@ -94,7 +94,8 @@ animator.addUpdateListener(animation -> {
 animator.start();
 ...
 animationView.cancelAnimation();
-{% endhighlight %}
+```
+
 
 [lottie-Document]:http://airbnb.io/lottie/
 [lottie-react-native]:https://github.com/airbnb/lottie-react-native
