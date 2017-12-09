@@ -66,7 +66,7 @@ lottie_loop : true or false로 애니메이션을 반복할지에 대한 속성�
 당연하게도 해당 속성들에 대한 접근 API도 제공한다.
 
 ```java
-LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation_view);
+LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.splash_animation_view);
 animationView.setAnimation("hello-world.json");
 animationView.loop(true);
 animationView.playAnimation();
@@ -96,6 +96,9 @@ animator.start();
 animationView.cancelAnimation();
 ```
 
+애니메이션 제작에 걸리는 시간을 확실히 줄일 수 있으며 디자이너의 생각이 바로 반영될 수 있어서
+
+좋다.
 
 [lottie-Document]:http://airbnb.io/lottie/
 [lottie-react-native]:https://github.com/airbnb/lottie-react-native
