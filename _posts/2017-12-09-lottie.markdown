@@ -71,7 +71,7 @@ animationView.setAnimation("hello-world.json");
 animationView.loop(true);
 animationView.playAnimation();
 ```
-와 같이 실행중 애니메이션 변경도 가능하며 반복, 재생, 재생속도 조절등 다양한 기능을 제공한다.
+와 같이 실행중 애니메이션 변경도 가능하며 반복, 재생, 취소등이 가능하며 ValueAnimator객채를 이용하여 재생속도 조절등 다양한 기능을 제공한다.
 
 {% highlight java %}
 animationView.addAnimatorUpdateListener((animation) -> {
