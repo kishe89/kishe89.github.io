@@ -1,0 +1,216 @@
+---
+layout: post
+title:  "Java Refactoring Intro"
+date:   2018-01-04 18:13:00
+author: 김지운
+cover:  "/assets/instacode.png"
+---
+
+1일 1포스팅의 처음이다.
+
+일단 시작은 길벗에서 출판된 자바로 배우는 리팩토링 입문이란 책을 기본으로 내가 읽으며 느낀 점을
+기본으로 시작한다(책 리뷰어 신청했는데 되버려서ㅎㅎ).
+
+일단 리팩토링(Refactoring)은 기본적으로 코드의 좀 더 나은 확장성, 재사용성, 가독성을 가지기 위한 작업이며 노력이다.
+최근의 소프트웨어는 멈춰있지 않고 발전속도 또한 점점 가속화 되어가며 트렌드는 따로따로 따라가려면 어지간한 노력가지고는
+불가능에 가까워지고 있으며 오픈소스 문화, agile방법론, DevOps문화의 정착에 따라 점점 더 생산성에 포커스가 맞춰지는
+상황에서 기존 코드가 완벽히 커플링 되어있으면 모든 소프트웨어는 매번 재개발을 할 수 밖에없는데 이는 오히려 생산성을 저해하고
+개발 비용의 증가를 가지고 올 것이다.
+리팩토링을 통한 꾸준한 코드 구조에대한 개선 노력을 들이면 좀 더 유연한 대처가 가능해진다.
+거기에 요즘 언어들은 멀티패러다임 형태로 서로의 장점들을 흡수하며 버전업 되어가기 때문에 더욱이 리팩토링, 패턴, 알고리즘등에 대한
+공부가 필요하다고 개인적으로 느끼고 있다.
+
+서론은 이정도로 하고 그럼 어떤 작업이 리팩토링일까에 대해 생각해보자
+
+예를 들어서 아래 코드 처럼 파라미터로 받은 두 정수를 덧셈 뺄셈하는 Calculator 객체 코드가 있다고 하자.
+이 객체는 단지 입력받는 두개의 정수 파라미터에 대해 덧셈과 뺄셈만을 위한 객체이다.
+
+```java
+package example_1_intro;
+
+public class Calculator {
+	public int addition(int value1, int value2) {
+		return value1+value2;
+	}
+	public int subtraction(int value1, int value2) {
+		return value1-value2;
+	}
+}
+
+```
+
+이 코드에 나눗셈, 곱셈하는 기능을 추가하는 행위는 리팩토링일까?
+아래처럼 나눗셈, 곱셉을 추가함으로써 위에서 말했듯이 좀 더 나은 확장성, 재사용성, 가독성을 가지게 되었나에 대해 생각해보자.
+물론 기능이 추가됨에 따라 이 4가지 기능을 사용해야하는 소프트웨어에대한 재사용성이 늘었다고 주장할 수 있을것이다.
+하지만 확장성과 가독성이 증대 되었냐에 대한 질문에는 답할 수 없을 것이다.
+또한 재사용성도 만약 덧셈과 뺄셈만 필요한 코드에대해서는 불필요한 코드가 들어감에 따라 재사용성이 늘었다고 주장하는 것도
+무조건적으로 타당하지는 않을것이다.
+이러한 작업은 그저 기능의 추가로 볼 수 있지 리팩토링이라고는 할 수 없을것이다.
+```java
+package example_1_intro;
+
+public class Calculator {
+	public int addition(int value1, int value2) {
+		return value1+value2;
+	}
+	public int subtraction(int value1, int value2) {
+		return value1-value2;
+	}
+	public int division(int value1, int value2) {
+		return value1/value2;
+	}
+	public int multiplication(int value1, int value2) {
+		return value1*value2;
+	}
+}
+
+```
+
+또한 정수를 이용한 곱셈 및 나눗셈으로 인한 올림 버림으로 발생하는 문제를 수정하는 것(좀 더 정확한 수치가 필요할 때)
+즉 올림 버림으로 인해 실수부가 잘리는 문제가 버그인 경우 이를 수정하는 행위 또한 리팩토링이 아닌 그저 버그 수정이라고 볼 수 있다.
+
+우리가 리팩토링한 코드는 동작(처음 우리가 필요했던 Calculator는 그저 덧셈과 뺄셈기능만을 필요로 하는 계산기였다.)에 변경이 있어서는 안된다.
+
+그렇다면 위 2가지 코드를 보고 어떤 행위를 통해서 Calculator를 좀 더 확장성 재사용성, 가독성을 가지게 할 수 있을까?
+
+일단 Java에서 제공하는 interface를 이용한 방법을 써보자. 일단 필요한 메소드들을 인터페이스로 분리 해볼 것이다.
+
+###### Addition.java
+```java
+package example_1_intro;
+public interface Addition {
+	public int addition(int value1, int value2);
+}
+```
+###### Subtraction.java
+```java
+package example_1_intro;
+public interface Subtraction {
+	public int subtraction(int value1, int value2);
+}
+```
+###### Multiplication.java
+```java
+package example_1_intro;
+public interface Multiplication {
+	public int multiplication(int value1, int value2);
+}
+```
+###### Division.java
+```java
+package example_1_intro;
+public interface Division {
+	public int division(int value1, int value2);
+}
+```
+
+위 처럼 4개의 인터페이스를 만들었다. 그리고 아래 Calculator.java소스를 보면 만든 인터페이스들을 implements해줬다.
+###### Calculator.java
+```java
+package example_1_intro;
+
+public class Calculator implements Addition,Subtraction{
+	@Override
+	public int addition(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return value1+value2;
+	}
+
+	@Override
+	public int subtraction(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return value1-value2;
+	}
+}
+
+```
+이 행위는 리팩토링일까? 기존의 동작의 변경이 없으면서 좀 더 나을 재사용성, 확장성, 가독성을 얻었을까?
+우리가 처음 필요했던 Calculator는 입력받은 두 정수의 덧셈과 뺄셈을 하는 기능을 가진 객체였다.
+위 코드는 일단 기존에 했던 기능을 하는데 무리는 없어보인다. 즉 기존의 동작은 가능하다.
+그리고 우린 어떠한 기능도 추가하지 않았다. 또한 Calculator의 필요 행위는 Calculator에 정의되지 않고
+interface에 정의 되었기에 해당 기능중 불필요한게 있다면 그저 implements를 안하면 되며 특정 기능이 필요하다면
+interface를 하나 더 만들어 implements하면 될 것이다.
+##### Calculator.java
+```java
+package example_1_intro;
+
+public class Calculator implements Addition,Subtraction,Division,Multiplication{
+
+	@Override
+	public int addition(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return value1+value2;
+	}
+
+	@Override
+	public int subtraction(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return value1-value2;
+	}
+
+	@Override
+	public int multiplication(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return value1*value2;
+	}
+
+	@Override
+	public int division(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return value1/value2;
+	}
+}
+```
+Calculator에 전부 implements한 경우는 만약 Calculator를 상속하여 사용하려고 할 경우 기능이 전부 필요치 않다면
+이 또한 불필요한 기능의 추가가 될 수 있을것이다. 하지만 Calculator의 기능들이 앞으로 사용될 객체의 Base가 될 수 있는 모든 객체의 공통된 행동이라면
+이 방법이 더 좋을 순 있다. 하지만 코드가 점점 비대해짐에 따라 테스트를(4가지 함수 다 테스트 해야함) 하기 힘들어질 수 있다.
+우리의 Calculator가 처음에 이야기 했듯이 2가지 기능만을 가지길 원했지만 추가되는데 있어서 좀 더 나은 확장성, 재사용성, 가독성을 가지기
+위해 어떤 방법이 있을까?
+아래의 ExtendedCalculator.java를 보자
+##### ExtendedCalculator.java
+```java
+package example_1_intro;
+
+public class ExtendedCalculator extends Calculator implements Multiplication,Division{
+
+	@Override
+	public int addition(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return super.addition(value1, value2);
+	}
+
+	@Override
+	public int subtraction(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return super.subtraction(value1, value2);
+	}
+
+	@Override
+	public int division(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return value1/value2;
+	}
+
+	@Override
+	public int multiplication(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return value1*value2;
+	}
+
+}
+
+```
+Calculator의 두가지 기능인 덧셈, 뺄셈에 대해서 테스트가 통과했다는 가정을 하자.
+그럴 경우 ExtendedCalculator는 division과 multiplication 두가지 기능에 대한 테스트케이스만을
+통과하면 될 것이다.
+우리는 ExtendedCalculator에서 addition과 subtraction에 대해 따로 작업을 하지 않고 앞에서 성공한
+Calculator의 addition과 subtraction을 사용하고 있기 때문이다.
+
+우리는 단순히 기능을 추가하지 않았다. 기능을 추가하기 위해 구조를 변경하고 개선하려고 노력한 것이다.
+물론 지금 변경한 구조가 최선은 아닐 수 있다.
+
+하지만 추가하기 위한 행위 자체에 대해서는 유연해 졌으며 기존 코드에대해 기능을 추가하는 행위에 대해서는 이전 보다
+적은 노력이 들 것이다.
+
+이러한 행위 자체를 리팩토링이라고 한다.
+내일은 코드상에 하드코딩된 상수값들에 대한 리팩토링 방법들에 대해서 포스팅 해야겠다.
