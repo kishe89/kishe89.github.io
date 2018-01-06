@@ -161,5 +161,7 @@ javadoc과 같은 유용한 주석들이 있다.
 java -ea Application
 ```
 
-assertion 옵션에 대한 자세한 내용은 [Assertion docs][https://docs.oracle.com/javase/8/docs/technotes/guides/language/assert.html]를
+assertion 옵션에 대한 자세한 내용은 [Assertion docs][Assertion docs]를
 참조한다.
+
+[Assertion docs]:https://docs.oracle.com/javase/8/docs/technotes/guides/language/assert.html
