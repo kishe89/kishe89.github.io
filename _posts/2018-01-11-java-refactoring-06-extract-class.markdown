@@ -412,6 +412,8 @@ public class Author {
 
 	public Author(String authorName, String authorMail) {
 		// TODO Auto-generated constructor stub
+		this.authorName = authorName;
+		this.authorMail = authorMail;
 	}
 
 	public String getAuthorName() {
@@ -539,6 +541,8 @@ public class Author implements ImmutableAuthor{
 
 	public Author(String authorName, String authorMail) {
 		// TODO Auto-generated constructor stub
+		this.authorName = authorName;
+		this.authorMail = authorMail;
 	}
 
 	public String getAuthorName() {
@@ -558,6 +562,7 @@ public class Author implements ImmutableAuthor{
 	}
 
 }
+
 ```
 ##### Article(읽기전용 Author 반환하도록 리팩토링)
 ```java
