@@ -941,5 +941,5 @@ print 는 ArticleTypeEnum 의 print 를 사용하게 되며 상태 클래스들�
 분류 코드 치환 관련 포스팅 : [클래스로 치환][07-replace-typecode-with-class], [서브 클래스로 치환][08-replace-typecode-with-subclass], [상태 전략 패턴을 이용한 치환][09-replace-typecode-with-strategy]
 
 [07-replace-typecode-with-class]:https://kishe89.github.io/2018/01/12/java-refactoring-07-replace-typecode-with-class.html
-[08-replace-typecode-with-subclass]:https://kishe89.github.io/2018/01/12/java-refactoring-08-replace-typecode-with-subclass.html
+[08-replace-typecode-with-subclass]:https://kishe89.github.io/2018/01/13/java-refactoring-08-replace-typecode-with-subclass.html
 [09-replace-typecode-with-strategy]:https://kishe89.github.io/2018/01/16/java-refactoring-09-replace-typecode-with-strategy.html
