@@ -583,7 +583,7 @@ public class Application {
 }
 
 ```
-이제 ArticleFactory 객체의 create 라는 팩토리 메서드로 Article 을 생성할 수 있다. 하지만 위 코드보다는 ArticleManager 를 이용하여 Factory 인스턴스를 받고 해당 create를 추상화 하는 것까지가 괜찮은듯 싶다.
+이제 ArticleFactory 객체의 create 라는 팩토리 메서드로 Article 을 생성할 수 있다. 하지만 위 코드보다는 ArticleManager 를 이용하여 Factory 인스턴스를 받고(의존성 주입(Dependency Injection)) 해당 create를 추상화 하는 것까지가 괜찮은듯 싶다.
 지금도 충분히 클래스가 많아졌고 그 이상 추상화를 진행하게되면 오히려 더 복잡한 코드가 될 수 있다.
 Factory method 는 유용한 방법이다. 하지만 위에서 이야기 했듯이 용도에 맞게 사용하는 것이 중요하다.
 굳이 다형성이 필요하지 않은 곳에 적용할 필요는 없다. new 한줄이면 끝날걸 여러 클래스를 나누는 짓은 멍청한 짓이다.
