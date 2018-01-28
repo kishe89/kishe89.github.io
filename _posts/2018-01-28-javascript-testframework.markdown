@@ -63,6 +63,9 @@ babel 사용을 위해서는 프로젝트 root 에 사용할 preset 을 나타�
 ```
 node 에서는 babel-node 를 이용하는데 현재 node js 공부가 아니라 javascript design pattern 공부중이기에 babel 을 이용했다.
 
+
+### Test Case 작성법
+---
 mocha 의 테스트 꾸러미의 시작은 describe(string, function)로 시작한다.
 ```javascript
 describe('TestExample', function() {
