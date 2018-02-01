@@ -144,6 +144,45 @@ TDD 는 개발자에게 기계적으로 [SOLID]를 지키기 쉽게 코드를 �
 ##### index_01.html 실행화면
 ![Alt text](/assets/javascript_tdd_image/ex1/index1.png)
 
+register 에서 아무런 동작도 하지 않기에 toThrow 에서 기대하는 익셉션 발생은 없을 것이다.
+
+이제 register 에서 Error 를 throw 하게 변경해본다.
+##### DiContainer_01
+```javascript
+DiContainer = function () {
+    if(!(this instanceof DiContainer)){
+        return new DiContainer();
+    }
+};
+
+DiContainer.prototype.register = function (name, dependencies, func) {
+    let ix;
+
+    if(typeof name !== 'string'
+    || !Array.isArray(dependencies)
+    || typeof func !== 'function'){
+        throw new Error(this.messages.registerRequiresArgs);
+    }
+    for(ix = 0 ; ix<dependencies.length; ix++){
+        if(typeof dependencies[ix] !== 'string'){
+            throw new Error(this.messages.registerRequiresArgs);
+        }
+    }
+};
+DiContainer.prototype.messages = {
+    registerRequiresArgs: '이 생성자 함수는 인자가 3개 있어야 합니다 : '+'문자열, 문자열 배열, 함수'
+};
+```
+
+DiContainer 의 생성을 생성자를 통해서 하도록 강제하고
+register 에서는 전달받은 name 의 타입이 string 이 아닌지 확인하고
+dependencies 는 Array 인지 그리고 func 는 function 인지 확인하여 아닐경우 에러를 발생시킨다.
+에러의 메시지는 DiContainer.prototype.messages 에 정의한다.
+
+이렇게 변경한 후 실행하게 되면 앞에 테스트케이스의 badArgs 의 잘못된 파라미터들의 전달마다 Error 를 thorw 하여 테스트는 성공하게 된다.
+##### index_02.html 실행화면
+![Alt text](/assets/javascript_tdd_image/ex1/index2.png)
+
 
 [Jasmine-travis]:https://github.com/jasmine/jasmine/blob/master/.travis.yml
 [SOLID]:https://ko.wikipedia.org/wiki/SOLID
