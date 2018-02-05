@@ -4,6 +4,7 @@ title:  "댓츠잇에서의 경력"
 date:   2017-11-27 20:48:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Posts
 ---
 
 ### 업무

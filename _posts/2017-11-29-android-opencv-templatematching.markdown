@@ -4,6 +4,7 @@ title:  "template matching"
 date:   2017-11-29 15:46:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Posts
 ---
 
 android를 이용한 영상처리에 관심이 있어서 공부용으로 feature matching 과 template matching 을 해보았는데 feature matching 짜놓은 코드는
