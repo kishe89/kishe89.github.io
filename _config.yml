@@ -42,7 +42,7 @@ descriptions:
   - cat: Posts
     desc: "Posts describing my techniques story"
   - cat: Test
-      desc: "Posts describing my techniques story"
+    desc: "test"
 
 # Social icons and sharing options
 #
