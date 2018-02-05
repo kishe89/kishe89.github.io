@@ -1,6 +1,5 @@
 ---
 layout: post
-comments: true
 title:  "Javascript Aspect Toolkit-2"
 date:   2018-02-05 19:24:00
 author: 김지운
