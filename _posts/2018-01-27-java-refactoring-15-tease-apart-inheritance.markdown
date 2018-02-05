@@ -4,6 +4,7 @@ title:  "Java Refactoring Tease Apart Inheritance"
 date:   2018-01-27 13:51:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 상속은 더 적은 코드를 가지고 기존보다 많은 기능, 다양한 기능을 구현하는데 좋은 도구이다.

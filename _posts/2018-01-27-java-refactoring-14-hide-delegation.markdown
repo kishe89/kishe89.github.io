@@ -4,6 +4,7 @@ title:  "Java Refactoring Hide Delegation"
 date:   2018-01-27 11:56:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 앞에서는 Inheritance 를 Delegaation 으로 치환하는 것에 대해 알아보았다.
