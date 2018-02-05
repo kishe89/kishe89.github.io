@@ -4,6 +4,7 @@ title:  "Java Refactoring MagicNumber"
 date:   2018-01-05 18:53:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 1일 1포스팅의 2번째이다.

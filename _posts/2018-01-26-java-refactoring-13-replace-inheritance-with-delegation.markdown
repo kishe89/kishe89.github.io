@@ -4,6 +4,7 @@ title:  "Java Refactoring Replace Inheritance with Delegation"
 date:   2018-01-26 02:35:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 A 클래스와 B 클래스가 있고 B 는 A 를 상속받는다면 B 는 A 의 기능을 바로 이용할 수있다.

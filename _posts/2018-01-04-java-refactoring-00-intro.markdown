@@ -4,6 +4,7 @@ title:  "Java Refactoring Intro"
 date:   2018-01-04 18:13:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 1일 1포스팅의 처음이다.

@@ -4,6 +4,7 @@ title:  "Animation With lottie"
 date:   2017-12-09 21:38:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Posts
 ---
 
 [lottie][lottie]는 airbnb에서 공개한 android, ios, web(react-native)용 애니메이션 라이브러이다.

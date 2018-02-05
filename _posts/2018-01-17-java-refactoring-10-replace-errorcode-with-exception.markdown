@@ -4,6 +4,7 @@ title:  "Java Refactoring Replace Error code with Exception"
 date:   2018-01-17 20:13:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 소프트웨어는 에러(의도치 않은 상황)이 발생한다. 사실상 개발자의 제어하에 둘 수 없는 상황이 무조건적으로 생긴다.

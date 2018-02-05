@@ -4,6 +4,7 @@ title:  "Java Refactoring Control Flag"
 date:   2018-01-06 18:52:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 1일 1포스팅의 3번째이다.

@@ -4,6 +4,7 @@ title:  "Java Refactoring Null Object"
 date:   2018-01-07 20:39:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 1일 1포스팅의 5번째이다.

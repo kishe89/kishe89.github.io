@@ -4,6 +4,7 @@ title:  "Java Refactoring Replace type code with SubClass"
 date:   2018-01-13 04:39:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 이전 포스팅에서 분류 코드를 클래스로 치환 하는 방법에 대해 알게 되었다.

@@ -4,6 +4,7 @@ title:  "Java Refactoring Replace Constructor with Factory Method"
 date:   2018-01-18 17:32:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 일반적으로 클래스를 생성할 때 우리는 new Object() 를 이용하여 클래스를 생성한다.

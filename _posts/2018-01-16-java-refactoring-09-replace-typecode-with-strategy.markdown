@@ -4,6 +4,7 @@ title:  "Java Refactoring Replace type code with state/strategy pattern"
 date:   2018-01-16 18:05:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 이전 포스팅에서 분류 코드를 서브 클래스로 치환하는 방법 및 경우를 보았다.

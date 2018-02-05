@@ -4,6 +4,7 @@ title:  "Java Refactoring Replace typecode with Class"
 date:   2018-01-12 19:44:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 분류 코드는(type code)는 객체의 종류를 나타내는 값을 말한다.

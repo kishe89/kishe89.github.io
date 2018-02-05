@@ -4,6 +4,7 @@ title:  "Java Refactoring Extract class"
 date:   2018-01-11 19:44:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 클래스는 속성을 가지고 행위를 처리하고 책임지는 주체입니다.

@@ -4,6 +4,7 @@ title:  "Java Refactoring Extract method"
 date:   2018-01-11 16:37:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 필드 혹은 멤버변수 가 어떤 객체가(dog,cat,person,...,etc) 가지는 속성(age,sex,height,width,sound,...,etc)이라면

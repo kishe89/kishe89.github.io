@@ -4,6 +4,7 @@ title:  "Java Refactoring Duplicate Observed Data"
 date:   2018-01-19 18:41:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Java
 ---
 
 소프트웨어에서 어떤 객체에서 일어나는 일들(관측 데이터)을 다른 객체에게 알려줘야 하는 상황들이 빈번하게 일어난다.

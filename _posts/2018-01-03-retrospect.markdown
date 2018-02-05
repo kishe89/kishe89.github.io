@@ -4,6 +4,7 @@ title:  "2018년에 쓰는 나의 첫 실패"
 date:   2018-01-03 17:28:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Posts
 ---
 
 2017년은 나의 첫 실패가 있던 한 해였다.

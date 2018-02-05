@@ -4,6 +4,7 @@ title:  "자바로 배우는 리팩토링 입문 리뷰"
 date:   2018-01-13 18:09:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Posts
 ---
 
 각 주제별 리팩토링 하는 내용이 인트로에서 소개한 악취 및 기술적 부채의 어느 부분에 대한
