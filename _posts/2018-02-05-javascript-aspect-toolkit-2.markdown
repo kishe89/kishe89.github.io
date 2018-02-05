@@ -1,10 +1,10 @@
 ---
 layout: post
+comments: true
 title:  "Javascript Aspect Toolkit-2"
 date:   2018-02-05 19:24:00
 author: 김지운
 cover:  "/assets/instacode.png"
-comments: true
 ---
 
 AOP 에 대한 내용을 하다가 커뮤니티에서 논쟁이 된 내용을 이야기하느라 못한 이야기를 적는다.
