@@ -4,6 +4,7 @@ title:  "Javascript test framework"
 date:   2018-01-28 18:58:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Posts
 ---
 
 이전까지 node js 에서 테스트 프레임웤은 [Mocha] 를 이용해왔는데 지금 읽고 있는 책(Javascript design pattern)에서는 [Jasmine] 을 이용한 테스트 케이스 작성을 설명하고 있어서 이에 대한 공부를 진행하려 한다.

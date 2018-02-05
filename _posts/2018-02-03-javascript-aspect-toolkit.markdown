@@ -4,6 +4,7 @@ title:  "Javascript Aspect Toolkit"
 date:   2018-02-04 15:24:00
 author: 김지운
 cover:  "/assets/instacode.png"
+categories: Posts
 ---
 
 애스팩트 지향 프래그래밍(AOP)는(단일한 책임 범위 내에 있지 않은) 하나 이상의 객체에 유용한 코드를 한데 묶어 눈에 띄지 않게 객체에 배포하는 기법이다.

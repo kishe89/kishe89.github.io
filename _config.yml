@@ -41,8 +41,8 @@ disqus_shortname: kishe89
 descriptions:
   - cat: Posts
     desc: "Posts describing my techniques story"
-  - cat: Test
-    desc: "test"
+  - cat: Java
+    desc: "Posts describing my Java techniques story"
 
 # Social icons and sharing options
 #
