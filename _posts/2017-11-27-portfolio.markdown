@@ -23,7 +23,7 @@ cover:  "/assets/instacode.png"
 
 |고객|앱 이름|작업 내용|앱 링크|
 |---|---|---|---|
-|신안|신안스탬프|안드로이드(Java) 100%, Backend(node js) 100%|[신안 앱 다운][shinan]|
+|신안|신안스탬프|안드로이드(Java) 100%,아이폰(Swift) 50% ,Backend(node js) 100%|[신안 앱 다운][shinan]|
 |공주|공주 스탬프투어|안드로이드(Java) 90%, Backend(node js) 100%|[공주 앱 다운][gongju]|
 |여주|여주 스탬프투어|안드로이드(Java) 90%, Backend(node js) 100%|[여주 앱 다운][yeoju]|
 |영광|영광 스탬프투어|안드로이드(Java) 90%, Backend(node js) 100%|[영광 앱 다운][yeonggwang]|
@@ -43,7 +43,7 @@ cover:  "/assets/instacode.png"
 
 |고객|앱 이름|작업 내용|앱 링크|
 |---|---|---|---|
-|농어촌공사|농촌여행|안드로이드(Java) 100%, Backend(node js) 100%|[농촌여행 앱 다운][farm]|
+|농어촌공사|농촌여행|안드로이드(Java) 100%,아이폰(Swift) 50%, Backend(node js) 100%|[농촌여행 앱 다운][farm]|
 |댓츠잇|축제 스탬프투어|Backend(node js) 100%|[축제스탬프 앱 다운][festival]|
 
 
