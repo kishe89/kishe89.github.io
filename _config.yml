@@ -41,6 +41,8 @@ disqus_shortname: kishe89
 descriptions:
   - cat: kishe89
     desc: "Posts describing my techniques story"
+  - cat: dummy
+    desc: "Just some placeholder posts, lorem ipsum and the rest."
 
 # Social icons and sharing options
 #
