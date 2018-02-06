@@ -4,7 +4,7 @@ title:  "multer 확장 스토리지 엔진"
 date:   2017-11-27 22:08:43
 author: 김지운
 cover:  "/assets/instacode.png"
-categories: Post
+categories: Posts
 ---
 
 ### Object Storage Engine
