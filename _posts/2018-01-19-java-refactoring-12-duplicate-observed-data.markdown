@@ -10,9 +10,11 @@ categories: Java
 소프트웨어에서 어떤 객체에서 일어나는 일들(관측 데이터)을 다른 객체에게 알려줘야 하는 상황들이 빈번하게 일어난다.
 우리는 ArticleManager 가 Article 들을 전부 관리하도록 했습니다. ArticleManager 가 관리하고 있는 Article 들이
 업데이트(변경)이 이루어질 때 print 를 해줘야 하는데 print 할 device 가 바쁘다면 ArticleManager 가 그저 print 를 호출하는건 옳바른 동작을 보장할 수 없을것이다.
+
 print 될 device 를 관리하는 객체에서 바쁘지 않을 때(실행 가능할 때) print 를 하는 것이 올바른 동작일 것이다.
 데이터의 update 이벤트가 발생하는 지에 대해서 print 할 device 객체인 B 에서 확인할 수 있어야 한다.
 이를 위해 관찰자 패턴(Observer pattern)이나 이벤트 리스너가 필요해진다.
+
 이전까진 Article 자체가 print 를 하도록 했지만 예를 위해서 console 에 print 를 행할 객체를 하나 만들도록 한다.
 그 이후 리팩토링을 진행해본다.
 
@@ -100,6 +102,7 @@ public abstract class ConsoleView {
 ConsoleView 라는 클래스를 하나 작성하였다.
 
 물론 이미 있는 GUI 라이브러리들을 사용하거나 하는 방법도 괜찮지만 공부를 위함이므로 하나 만들자.
+
 ConsoleView 는 앞으로 생성할 MyArticleView, SharedArticleView, AdArticleView 의 상위 클래스로
 console 에 view 마다 띄워줄 header, footer String 을 가지며 view 에 실제 print 를 요청할 인터페이스 UpdateListener
 를 가진다.
@@ -279,6 +282,7 @@ public class Application {
 Application 에서는 위와 같이 동작하게 된다.
 동작을 해보면 문제를 느낄 것이다. 바로 view 의 타입을 바꾸게 되면 전부 바뀌게 되는 문제점인데
 이제 이를 해결해본다.
+
 Article 의 타입에 따라 ConsoleView 를 생성해줘야하는데 그렇다면 Article 의 갯수만큼의 ConsoleView 객체가 필요할 것이다.
 또한 articleManager 는 이러한 사항들을 모두 알고있어야한다.
 
@@ -505,8 +509,10 @@ bindData 에서는 실제 데이터를 view 에 등록해준다. 그 후 print �
 우리는 ArticleManager 를 수정하고 ArticleAdapter 를 만들고 xxxView 를 만들어서 실행했지만
 결과는 이전과 동일하다.
 그러나 이러한 작업을 통해서 역할을 나누고 책임을 나누어서 각각의 수정 및 추가가 쉽게 되었다.
+
 예를 들어서 새로운 양식의 Article 뷰를 만들고 싶으면 ConsoleView 를 상속받는 다른 view 만 작성하고 ArticleTypeEnum 에 추가만 해주면된다.
 Article 을 관리하는데 있어서 새로운 기능 rangeUpdate 등을 구현하는 것은 ArticleManager 에 구현하면된다.
 또한 뷰의 타입문제도 해결이 되었다.
+
 네이밍은 약간 수정해야 겠지만 유연성은 확실히 좋아졌다.
 다음 포스팅에서는 상속을 위임으로 치환하는 방법에 대해서 쓰겠다.

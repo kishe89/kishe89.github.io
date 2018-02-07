@@ -10,8 +10,10 @@ categories: Java
 일반적으로 클래스를 생성할 때 우리는 new Object() 를 이용하여 클래스를 생성한다.
 이 때 Object 에는 생성할 클래스의 이름을 적어주게 되는데 이를 클래스명이 하드코딩 되어있다고 한다.
 이 장에서 나올 내용은 앞에서 이미 많이 사용한 내용이다.
+
 팩토리 메서드를 간단히 이야기하면 생성자(Constructor)를 팩토리 메서드(Factory method)로 추상화 한 것이다.
 생성할 때 생성자를 호출하여 생성하는 것이 아니라 생성자를 호출하여 생성된 인스턴스를 반환하는 Factory Method 를 호출하여 생성하는 것이다.
+
 이를 통해 얻을 수 있는 장점은 객체의 생성시점에 객체의 타입(클래스) 를 팩토리 메서드 내부에서 결정되게 되는데
 이는 반환하는 타입을 이용하여 Factory method 를 호출하는 쪽에서는 그저 Article 을 생성하는 하나의 동작으로 모든 Article 을 생성할 수 있는 것이다.
 
@@ -167,10 +169,10 @@ public class Article {
 Application 에서 우리는 Article 의 생성자를 호출하여 Article 을 생성하였다.
 하지만 Article 이 MyArticle, SharedArticle, AdArticle 로 각각 print 동작이 다른 상황에서
 type 에 따라 다른 Article 로 생성하기 위해서는 어떻게 해야할까?
+
 생성자를 호출하는 곳에서 검사구문을 통해 각각의 생성자를 호출해야하는 번거로움이 생길 것이다.
 만약 이게 라이브러리라고 하였을 때 그리고 내가 그 라이버르리의 사용자라고 했을 때 Article.print() 로 동작하는 것을 원하지
 MyArticle.print(), SharedArticle.print() 를 생각하고 싶지는 않을 것이다.
-즉 생성을 어떻게 해야하고 하는 것보단 사용하는데 더 초점을 맞추기 때문에 쓰기 싫은 라이브러리가 될 것이다.
 
 그럼 Constructor 를 Factory method 로 치환 해보자.
 앞에서 이야기 했듯이 Factory method 는 단지 생성자를 호출하고 호출된 생성자가 반환하는 인스턴스를 반환하는 method 이다.
@@ -209,6 +211,7 @@ public class Article {
 ```
 
 Article 을 만들어주는 create 라는 Factory method 를 위와 같이 추가한다.
+
 이제 우리는 new Article(), new Article(String,String,String,String,int)
 그리고 Article.create(String title, String content, String authorName, String authorMail,int type) 라는 3가지 방법으로 생성할 수 있게 되었다.
 
@@ -426,6 +429,7 @@ public class Application {
 ```
 
 일단 article 의 팩토리는 만들어지긴 했다. 하지만 create 의 switch 문과 type 은 아직 제거되지 못했다.
+
 Article 을 생성하는 Factory method 를 분리하여 각각의 create method 를 만들어서 변경해보자.
 
 ##### Article
@@ -493,6 +497,7 @@ public abstract class Article {
 }
 ```
 분류코드로 사용하던 type 이 제거되고 상수 값들도 제거 되었다 각자의 Factory method 를 호출하면 되기 때문이다. 물론 각 subclass 의 생성자 부분도 변경해줘야한다.
+
 Application 에서는 아래처럼 사용할 수 있다.
 
 ##### Application
@@ -513,6 +518,7 @@ public class Application {
 ```
 
 분명 분류코드를 제거하여 불필요한 getter 와 필드 그리고 switch 문을 제거하였는데 결국 createXXX 라는 함수를 호출해야한다.
+
 한단계 더 나아가서 Factory 객체를 만들어보자.
 
 ##### ArticleFactory
@@ -584,8 +590,11 @@ public class Application {
 }
 
 ```
-이제 ArticleFactory 객체의 create 라는 팩토리 메서드로 Article 을 생성할 수 있다. 하지만 위 코드보다는 ArticleManager 를 이용하여 Factory 인스턴스를 받고(의존성 주입(Dependency Injection)) 해당 create를 추상화 하는 것까지가 괜찮은듯 싶다.
+이제 ArticleFactory 객체의 create 라는 팩토리 메서드로 Article 을 생성할 수 있다.
+
+하지만 위 코드보다는 ArticleManager 를 이용하여 Factory 인스턴스를 받고(의존성 주입(Dependency Injection)) 해당 create를 추상화 하는 것까지가 괜찮은듯 싶다.
 지금도 충분히 클래스가 많아졌고 그 이상 추상화를 진행하게되면 오히려 더 복잡한 코드가 될 수 있다.
+
 Factory method 는 유용한 방법이다. 하지만 위에서 이야기 했듯이 용도에 맞게 사용하는 것이 중요하다.
 굳이 다형성이 필요하지 않은 곳에 적용할 필요는 없다. new 한줄이면 끝날걸 여러 클래스를 나누는 짓은 멍청한 짓이다.
 

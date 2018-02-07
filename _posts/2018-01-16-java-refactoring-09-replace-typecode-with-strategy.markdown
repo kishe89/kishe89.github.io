@@ -9,8 +9,10 @@ categories: Java
 
 이전 포스팅에서 분류 코드를 서브 클래스로 치환하는 방법 및 경우를 보았다.
 우리가 일반적으로 아는 MVC 패턴도 stratergy 패턴의 내용이 포함된 패턴이다.
+
 앞에서 이용한 Sub Class 로 치환을 다시 생각해보면 생성시 객체의 분류가 인스턴스로 결정되었다.
 즉 AdArticle -> Article, MyArticle -> Article 은 가능하지만 AdArticle -> MyArticle 은 힘들다.
+
 수평관계에 있는 AdArticle, MyArticle, SharedArticle 끼리는 캐스팅도 불가능 하다.
 ##### ex1
 ```java
@@ -25,9 +27,11 @@ Factory 를 통해 create 한 인스턴스 또한 강제로 캐스팅하려 한�
 만약 동적으로 이 Article 의 종류가 변경 되어야 한다면 어떻게 해야할까?
 
 물론 값을 가지고 우리에게 필요한 클래스의 인스턴스를 생성하는 방법도 있을 것이다. 하지만 구조적으로 해결할 순 없을까?
+
 결국 정적인 클래스 명세말고 분류코드가 필요할 것이다.
 
 하지만 여태 우리는 이 분류코드가 가지는 문제들을 공부했고 이 문제를 해결하기 위해 단순 분류만을 위해서는 클래스로 치환하고 분류에 따라 동작이 다른 경우는 서브클래스로 치환을 하였다.
+
 하지만 분류 코드 즉 우리가 앞에서 치환한 클래스, 서브클래스가 동적으로 변하거나 변해야하는 상황이 있을 수 있다.
 이런 경우에 대해서 사용할 수 있는 것이 상태/전략 패턴으로의 치환이다.
 
@@ -225,6 +229,7 @@ public void print() {
 ```
 
 우리의 Article 은 분류 코드(type code)에 따라서 각기 다른 print 동작이 필요하였다.
+
 그래서 우리는 [분류 코드를 서브클래스로 치환][07-replace-typecode-with-subclass]으로 이 문제를 해결하였다.
 
 하지만 앞에서도 이야기 했듯이 동적으로 분류코드로 분류하고자 하는 타입이 변경 될 때에는 유효하지 않은 문제 해결 방법이었다.
@@ -244,6 +249,7 @@ public void setTypecode(int typecode) {
 
 위에서 필요한 상황을 만들기 위해 Article 의 타입을 변경하는 기능을 하나 추가한다.
 ArticleManager 가 Article 들을 관리하기로 했으므로 ArticleManager 를 아래와 같이 수정하고, ArticleManager 의 리턴 객체를 하나 새로 정의하겠다.
+
 이름은 MangedArticle 로 필드는 Article 과 index 를 가지도록 하겠다.
 
 ##### Application.java
@@ -556,14 +562,18 @@ public class ManagedArticle {
 
 ManagedArticle 에서 널 처리는 하지 않았다. 복습차원에서 해볼 사람은 해보길 바란다.
 ArticleManager 에는 Article 을 업데이트 하는 updateArticle 을 추가하였고 ArticleManager 가 반환하던 형식을 Article 에서 ManagedArticle 로 변경하였으며 ManagedArticle 은 Article 과 해당 Article 의 index 를 가지는 객체이다.
+
 updatedArticle 은 전달된 Article 을 해당 index 에 업데이트 하는데 index 가 유효하지 않으면(즉 없으면) 새로 생성한다.
 전달된 index 가 유효하면 해당 index 의 Article 객체를 update 하고 업데이트된 Article, index를 포함한 ManagedArticle 을 반환한다.
+
 Article 의 print 는 ArticleType 의 분류 코드에 의해 동작하며 type 을 변경하는 changeType 이 추가되었다.
 
 변경 중간중간 컴파일 해서 테스트는 진행 해보아야한다.
 여기까지 진행하여서 Application 을 실행시켜보면 기존 동작과 변경없이 동작한다.
+
 우리가 만든 ArticleType 은 현재 Article 의 상태를 나타내는 코드로 볼 수 있다.
 분류 코드를 치환한 ArticleType 객체의 변경을 통해 위에서 이야기한 문제를 해결할 수 있었다.
+
 하지만 print 부분의 switch 는 아직 악취가 난다. 우리는 앞에서 ArticleType 이라는 상태 객체를 만들었다.
 
 ArticleType 을 아래처럼 변경한다. 우리가 앞에서 했던 작업이다.
@@ -935,8 +945,10 @@ public class ArticleManager {
 }
 ```
 print 는 ArticleTypeEnum 의 print 를 사용하게 되며 상태 클래스들의 추가로 인한 클래스 갯수 늘어나는 문제도 어느정도 해결할 수 있다.
+
 이번 포스팅 내용은 분류 코드를 하위클래스를 만들어 동작 차이를 오버라이드하는 것 까지는 앞 포스팅과 같지만
 이용하는 클래스를 외부에 두는점이 다른 점이다.
+
 다음 포스팅은 에러 코드를 예외로 치환하는 것에 대해 알아보겠다.
 
 분류 코드 치환 관련 포스팅 : [클래스로 치환][07-replace-typecode-with-class], [서브 클래스로 치환][08-replace-typecode-with-subclass], [상태 전략 패턴을 이용한 치환][09-replace-typecode-with-strategy]

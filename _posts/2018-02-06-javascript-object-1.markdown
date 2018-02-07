@@ -51,9 +51,11 @@ javascript 에서 function 의 this 는 global 객체를 가르킨다.
 new 키워드를 사용하거나 리터럴로 반환하거나 혹은 함수내에서 새로운 객체를 생성하여 반환을 해야 정상적으로 우리가바라는 생성자의 역할을 할 수 있다.
 Arrow Function 을 생성자로 사용할 수 없는 이유가 바로 여기에 있다. Arrow Function 은 자기자신의 this 를 바인드 하지 않는다.
 어쨋든 위 animal,Animal,AnimalObject 는 생성자로서 역할을 한다.
+
 그런데 밑에 add 라는 것은 어떻게 될것인가 add 를 호출할 때 new 로 호출하지 않았다.
 그렇기에 this 는 global 객체이고 global 객체에 result 프로퍼티를 생성하고 3이 할당될것이다.
 returned 는 undefined 로 나오고 returned.result 는 당연히 에러를 뱉을것이다.
+
 이 이야기는 AnimalObject 또한 new 를 빼먹고 호출시 동일한 문제를 발생시킬 수 있다는 것이다.
 그리고 로그를 보면 알겠지만 오브젝트 리터럴을 선언하거나 반환한 것과 new 를 이용한 나머지 객체에는 차이가 있다.
 ![Alt text](/assets/javascript_tdd_image/javascript-object-1/index1.png)
@@ -63,6 +65,7 @@ returned 는 undefined 로 나오고 returned.result 는 당연히 에러를 뱉
 
 간단한 자료와 많은 기능이 필요치 않다면 원시형을 사용해도 괜찮다. 하지만 값의 유효성 체크등 생성시 어떠한 처리를 해야할 경우 단순 객체리터럴 생성(animal)은
 불가능 하지만 Animal 과같이 함수에서 리턴하는 형태로 처리하면 생성시의 처리가 가능해진다.
+
 new 는 내부적으로 생성자.prototype 을 상속하는 객체를 생성하고 생성된 객체는 자기자신에게 bind 된 this 를 지닌다. 그리고 new 로 호출한 함수는 기본적으로 return 을 명시하지 않을시 앞에서 만든 this 를 반환한다.
 add 함수가 우리가 원하는대로 new 를 붙이지 않더라도 정상적으로 본인의 result 를 가지려면 크게 두가지 방법이 있다.
 ##### new 를 호출안하고 생성방법

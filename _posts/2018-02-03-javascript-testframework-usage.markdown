@@ -198,6 +198,7 @@ describe("DiContainer",() => {
 ```
 toThrowError 는 Error 가 throw 되면 호출 될 콜백이며 이에 인자로 메시지를 전달해준다.
 테스트 외부에서도 메시지를 확인할 수 있으므로 보기 좀 더 명확한 테스트가 된다.
+
 등록 부분의 negative test 는 어느정도 된것 같으니 이제 컨테이너에 의존성이 잘 들어갔는지 확인할 get 함수의 테스트를 작성해본다.
 get 함수는 등록된 성명이 아닐경우 undefined 를 반환한다.
 ##### DiContainer_02.tests
@@ -277,6 +278,7 @@ DiContainer.prototype.get = function (name){
 
 DiContainer 에 registeredList 라는 array 필드를 작성하고 register 에서는 전달된 정상적인 파라미터를 해당 array 에 넣어준다.
 그리고 get 함수에서는 전달받은 이름에 맞는 함수를 실행한 결과를 반환하도록 작성한다.
+
 그리고 다시 테스트를 실행해보면 이전에 성공하던 undefined 를 기대하던 테스트는 실패하고 새로 작성한 테스트는 성공할 것이다.
 
 ![Alt text](/assets/javascript_tdd_image/ex1/index4.png)
@@ -412,8 +414,10 @@ DiContainer.prototype.get = function (name){
 
 DiContainer 의 get 함수를 약간 수정하여서 등록된 dependencies 에 대해서 재귀적으로 추가하도록 변경한다.
 context 를 전달하기위해 self 를 만들어줬다.
+
 그리고 self.get(xx)를 통해 dependency 를 dependencies(실행할 arguments)로 만들어주고 apply 를 통해서 함수호출을 하였다.
 apply(context, arguments)로 context 위치에는 실행할 객체가 들어가게 된다.
+
 apply 는 함수를 다른객체에서 사용할 때 사용하는데 undefined 를 주게되면 global 객체가 주체가된다.
 
 테스트를 실행해보면 정상적으로 동작되는 것을 볼 수 있다.
@@ -582,12 +586,15 @@ Attendee 를 보면 이전 작성했던 코드이다. 이전에 Attendee 를 작
 일을위한 일을 하는것이 될것이다.
 
 여기서는 대략적으로 테스트가 가능할만한 ConferenceWebSvc, Messenger 만을 작성하여 테스트를 진행한다.
-구체적인 구현은 없어도 상관없다. 단지 Attendee 에서 이용하는 Messenger 의 success, failure 함수와 ConferenceWebSvc 의 reserve, getRemainingReservations 함수만 작성을 해주면된다.
+구체적인 구현은 없어도 상관없다.
+
+단지 Attendee 에서 이용하는 Messenger 의 success, failure 함수와 ConferenceWebSvc 의 reserve, getRemainingReservations 함수만 작성을 해주면된다.
 굳이 이름이 ConferenceWebSvc 와 Messenger 일 필요도 없다.
 
 해서 DiContainer_tests 를 보면 좌석 예약에 필요한 객체의 생성자 들과 Attendee 의 Factory 함수를 앞에서 작성한 DiContainer 를 이용하여 의존성 주입을 테스트하는 것을 볼 수 있다.
 각각 'Service' 는 ConferenceWebSvc 를 생성하는 생성자, 'Messenger' 는 Messenger 를 생성하는 생성자, 'AttendeeFactory' 는 Attendee 를 생성하는 생성자이다.
 또한 'AttendeeFactory' 는 'Service', 'Messenger' 를 의존성으로 가지고 있다.
+
 즉 AttendeeFactory 의 등록된 javascript object 의 형태를 보면
 ```javascript
 {
@@ -620,6 +627,7 @@ new Attendee(service, messenger, attendeeId);
 생성된 Attendee 객체가 반환된다. 반환된 객체를 이용하여 예약을 호출하게되면
 정상적으로 실행되는 모습을 볼 수 있다.
 테스트 케이스를 보면 MyApp 으로 테스트 꾸러미를 다시 묶었으며 DiContainer 와 인접하게 MyApp-DiContainer 테스트 꾸러미를 만들었다.
+
 물론 MyApp 테스트케이스를 따로 만드는게 좋겠지만 지키기 어려운 원칙을 지키려고 시작조차 안하는 것보다는 이렇게라도 하는게 좋다고 생각해서 위처럼 나눴다.
 최종적으로 테스트 실행화면은 아래처럼 나올 것이다.
 ![Alt text](/assets/javascript_tdd_image/ex1/index7.png)
