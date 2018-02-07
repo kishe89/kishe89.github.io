@@ -4,7 +4,7 @@ title:  "Javascript test framework usage"
 date:   2018-02-03 14:28:00
 author: 김지운
 cover:  "/assets/instacode.png"
-categories: Posts
+categories: Javascript
 ---
 
 node 에서 기본적으로 모듈은 보통 require 를 통해서 load 하게되는데

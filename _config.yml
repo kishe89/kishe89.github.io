@@ -43,6 +43,8 @@ descriptions:
     desc: "Posts describing my techniques story"
   - cat: Java
     desc: "Posts describing my Java techniques story"
+  - cat: Javascript
+    desc: "Posts describing my Javascript techniques story "
 
 # Social icons and sharing options
 #
