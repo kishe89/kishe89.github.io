@@ -30,6 +30,8 @@ paginate_path: "/page:num/"
 inter_post_navigation: false
 highlightjs_theme: "monokai-sublime"
 
+#WebMaster Tool verification information
+naver_verify: f0d4b2efb006439cddbf2250ef1b234b7b57a85e
 google_verify: 3pwjQate7HOnXCQ_Y_SSKBhgF907q-5M5erCnXJLIqo
 
 # Disqus comments

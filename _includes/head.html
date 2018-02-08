@@ -7,6 +7,9 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   {% if site.name %}
   <meta name="author" content="{{ site.name }}">
+	{% if site.naver_verify %}
+	<meta name="naver-site-verification" content="{{ site.naver_verify }}"/>
+	{% endif %}
 	{% if site.google_verify %}
 	<meta name="google-site-verification" content="{{ site.google_verify }}">
 	{% endif %}
