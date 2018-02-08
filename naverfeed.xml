@@ -1,4 +1,3 @@
-{% raw %}
 ---
 layout: null
 ---
@@ -29,4 +28,3 @@ layout: null
     </entry>
     {% endfor %}
 </feed>
-{% endraw %}
