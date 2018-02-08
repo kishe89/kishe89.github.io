@@ -30,6 +30,7 @@ paginate_path: "/page:num/"
 inter_post_navigation: false
 highlightjs_theme: "monokai-sublime"
 
+google_verify: google203e98e44a9b009d.html
 
 # Disqus comments
 # disqus_shortname: bencentra
