@@ -7,8 +7,8 @@ layout: null
     <id>{{ site.url }}</id>
     <title><![CDATA[ {{ site.title | xml_escape }} ]]></title>
     <author>
-        <name>{{ site.author.name | xml_escape }}</name>
-        <email>{{ site.author.email }}</email>
+        <name>{{ site.name | xml_escape }}</name>
+        <email>{{ site.email }}</email>
     </author>
 
     <updated>{{ site.time | date_to_xmlschema }}</updated>
