@@ -1,3 +1,4 @@
+{% raw %}
 ---
 layout: null
 ---
@@ -15,7 +16,7 @@ layout: null
 
     {% for post in site.posts limit:20 %}
     <entry>
-        <id>{{ post.url | prepend: site.baseurl | prepend: site.url }}</id>
+        <id>{{ post.url }</id>
         <title><![CDATA[ {{ post.title | xml_escape }} ]]></title>
         <author>
             <name>{{ site.name | xml_escape }}</name>
@@ -28,3 +29,4 @@ layout: null
     </entry>
     {% endfor %}
 </feed>
+{% endraw %}
