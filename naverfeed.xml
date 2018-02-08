@@ -16,7 +16,7 @@ layout: null
 
     {% for post in site.posts limit:20 %}
     <entry>
-        <id>{{ site.url }}{{ post.url }}</id>
+        <id>{{ post.url | prepend: site.baseurl | prepend: site.url }}</id>
         <title><![CDATA[ {{ post.title | xml_escape }} ]]></title>
         <author>
             <name>{{ site.name | xml_escape }}</name>
