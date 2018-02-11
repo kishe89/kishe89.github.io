@@ -350,7 +350,7 @@ Calculator.prototype.add = (...args)=>{
 
 위와 같이 작성하면 Array 에 대해서 다시 순회할 필요가 없어진다.
 
-
+---
 
 여태 이번 포스팅의 주제인 **Callback** 에 대해 이야기 하지 않았다.
 
