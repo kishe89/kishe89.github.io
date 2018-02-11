@@ -160,7 +160,7 @@ Calculator.prototype.add = (...args)=>{
 
 여기까지 작성하고 Calculator.html 을 실행하여 테스트를 돌려본다.
 
-![Alt text](/assets/javascript_tdd_image/ex5/index1.png)
+![Alt text](/assets/javascript_tdd_image/ex5/index2.png)
 
 위와 같이 테스트는 실패할 것이다.
 
