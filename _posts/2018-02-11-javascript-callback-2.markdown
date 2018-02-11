@@ -35,7 +35,7 @@ categories: Javascript
 
 지금 글을 작성하는 이 시점에서 최신 버전은 9.5.0 이며 LTS 버전은 8.9.4 이다.
 
-Babel 설정파일에 presets 은 es2017 로 수정해준다.
+Babel 설정파일에 presets 은 es2017 을 추가 or 수정해준다.
 
 ### async await usage
 ---
