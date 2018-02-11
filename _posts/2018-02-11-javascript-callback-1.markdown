@@ -13,18 +13,18 @@ categories: Javascript
 ```
 참고
 
-**Javascript 에서 함수들은 파라미터로 함수를 받을 수 있고 응답으로 함수를 응답할 수 있다.**
+**Javascript 에서 함수들은 파라미터로 함수를 받을 수 있고 응답으로 함수 또는 결과를 응답할 수 있다.**
 
 ```javascript
 function add(value1,value2,saveFunc){
   let result = value1 + value2;
-  return done(result);
+  return saveFunc(result);
 }
 ```
 
-위 코드에서 value1, value2 는 더할 값이고 saveFunc 는 결과 값을 저장할 함수가 될 수 있다.
+위 코드에서 value1, value2 는 더할 값이고 saveFunc 는 결과 값을 저장할 함수가 된다.
 
-여기서 done 은 value1 + value2 가 result 에 담긴 후에 동기적으로 실행되는 함수이다.
+여기서 saveFunc 은 value1 + value2 가 result 에 담긴 후에 동기적으로 실행되는 함수이다.
 
 이런 함수를 콜백(동기식) 이라고 한다.
 
@@ -43,7 +43,7 @@ console.log('Hi');
 ```
 
 setTimeout 함수의 콜백으로 console.log('Hello')를 호출하는 함수를 등록해주었다.
-이 함수는 3초 후에 실행되는 콜백이다.
+이 함수는 3초 지연후에 실행되는 콜백이다.
 
 즉 위와 같이 코드를 작성하였다면 동기식으로 동작한다면 순서대로 console 창에는
 
@@ -59,7 +59,13 @@ setTimeout 함수의 콜백으로 console.log('Hello')를 호출하는 함수를
 
 **setTimeout 은 전달받은 callback 을 함께 전달받은 delay 값 이후 호출한다.**
 
-이러한 동작은 EventEmitter, EventListener 를 정의하여 우리가 작성할 수도 있고 Node JS 에서는 제공한다.
+#### 주의사항
+```
+setTimeout 은 제공된 delay 보다 빨리 실행되지 않는다는 것만 보장한다.
+```
+
+
+이러한 동작은 EventEmitter, EventListener 를 정의하여 우리가 작성할 수도 있고 Node Js 와 Javascript 에서 제공한다.
 
 또한 비동기 콜백 처리를 쉽고 읽기 쉽게 하기위한 여러가지 방안들이 제안되고 생겨났다.
 
@@ -321,6 +327,31 @@ dummyNdepthArray 는 array 안에 array 가 들어있는 3차 배열이다.
 
 DRY 하게 짜기위한 노력의 보상이라고 생각하자.
 
+### Calculator05
+---
+
+```javascript
+Calculator.prototype.add = (...args)=>{
+    let result = 0;
+    args.forEach((value)=>{
+        if(Array.isArray(value)){
+            result += Calculator.prototype.add(...value);
+            return;
+        }
+        result+=value;
+    });
+    return result;
+};
+```
+
+```장준영 님 피드백.```
+
+나머지 매개변수는 파라미터 전달식으로도 사용가능하다.
+
+위와 같이 작성하면 Array 에 대해서 다시 순회할 필요가 없어진다.
+
+
+
 여태 이번 포스팅의 주제인 **Callback** 에 대해 이야기 하지 않았다.
 
 왜냐하면 우리는 이미 **Callback**을 사용하고있다.
@@ -363,7 +394,7 @@ forEach 의 콜백안에 또 forEach 함수를 체인하고 그 forEach 의 콜�
 
 이러한 형태로 10차원까지 간 코드를 생각해보면 끔찍할 것이다.
 
-동기식으로 동작하는 함수들은 그나마 괜찮지만 함수 내부에 비동기 함수들이 몇뎁씩 연결되있고 그러한 함수가 여러개라면 실행순서를 읽기도 힘들고
+동기식으로 동작하는 함수들은 그나마 괜찮지만 함수 내부에 비동기 함수들이 몇 depth 씩 연결되있고 그러한 함수가 여러개라면 실행순서를 읽기도 힘들고
 코드또한 오류를 발생시킬 가능성이 높아진다.
 
 CallBack 에서 주의 할 것이 이것만 있는게 아니다.
@@ -392,16 +423,17 @@ resolve 나 reject 는 thenable 즉 then 을 지닌 Promise 를 반환한다.
 
 이를 통해 연속적으로 체인이 가능하다.
 
-이외에 모든 Promise 가 결정된 상태를 기다렸다 결정되며 하나라도 거절되면 거절 즉시 reject 하게 된다.
+이외에도 Promise 는 all, race 메서드를 제공한다.
+
 ```javascript
 Promise.all(iterable)
 ```
+Promise.All 메서드는 모든 Promise 가 결정된 상태를 기다렸다 결정되며 하나라도 거절되면 거절 즉시 reject 한다.
 
-그리고 iterable 객체가 전달시 상태가 결정되면 바로 그 상태로 결정하는
 ```javascript
 Promise.race(iterable)
 ```
-가 있다.
+Promise.race 메서드는 iterable 객체가 전달시 상태가 결정되면 바로 그 상태로 결정한다.
 
 여기서 정확히 해야할 것이 있다. Promise 자체가 비동기라는 생각은 하면 안된다.
 
