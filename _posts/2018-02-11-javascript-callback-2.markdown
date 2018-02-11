@@ -53,7 +53,7 @@ async function 은 **Promise**를 리턴한다.
 
 이 **Promise**는 resolve(이행됨), reject(거절됨) 상태로 리턴이 된다.
 
-resolve 가 되는 조건은 정상적인 return 에 의하고 reject 는 exception 이 발생하거나 새로운 Error 를 리턴하게 되면 발생한다.
+resolve 가 되는 조건은 정상적인 return 에 의하고 reject 는 exception 이 발생하거나 새로운 Error 를 throw 하면 발생한다.
 
 statements 에는 실질적인 함수의 구현부를 작성하게된다.
 
@@ -155,10 +155,12 @@ add3 함수를 추가하였다.
 
 resolveAfter25seconds(20),(30) 을 가지는 a,b 변수를 선언하고 return 에서 전달받은 x+ await a+ await b 를 호출하였다.
 
-await 는 해당 Promise 가 settled 될때까지 기다리게 되는데 위와 같이 한라인에 동시 호출할 경우는 오래 걸리는쪽에 맞춰서(병렬) 반환하게 된다.
+await 는 해당 Promise 가 settled 될때까지 기다리게 되는데 위와 같이 Promise 를 반환받아서 await 를 하게되면 처리시간이 다른경우는 오래 걸리는쪽에 맞춰서(병렬) 반환하게 된다.
+
 위에서는 2000 밀리초로 모두 같아서 못느끼지만 하나의 함수의 delay 를 따로 줘서 구현해보면 알 수 있다.
 
 add3 함수는 안에서 Promise 들이 settled 될때까지 기다리지 않았다.
+
 출력은 바로 일어나게되며 전달한 값인 10에 Promise 객체를 나타내는 로그가 붙어서 나올 것이다.
 
 아래의 예를 본다.
