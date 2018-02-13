@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Javascript Object-1"
+title:  "JavaScript Object-1"
 date:   2018-02-05 19:24:00
 author: 김지운
 cover:  "/assets/instacode.png"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Javascript Aspect Toolkit-2"
+title:  "JavaScript Aspect Toolkit-2"
 date:   2018-02-05 19:24:00
 author: 김지운
 cover:  "/assets/instacode.png"

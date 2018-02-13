@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Javascript test framework"
+title:  "JavaScript test framework"
 date:   2018-01-28 18:58:00
 author: 김지운
 cover:  "/assets/instacode.png"
