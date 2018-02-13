@@ -435,7 +435,7 @@ Promise.race(iterable)
 ```
 Promise.race 메서드는 iterable 객체가 전달시 상태가 결정되면 바로 그 상태로 결정한다.
 
-Promise 는 비동기 콜백 체인 코드를 좀 더 Flat(평평) 하게 해준다.
+Promise 는 비동기 콜백 체인 및 동기 콜백 체인 코드를 좀 더 Flat(평평) 하게 해준다.
 
 콜백체인은 indent depth 의 증가를 불러오는데 단순한 함수들만이 존재하면 그나마 다행일 것이다.
 
