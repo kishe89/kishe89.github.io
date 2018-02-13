@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Javascript callback-2"
+title:  "JavaScript callback-2"
 date:   2018-02-11 16:48:00
 author: 김지운
 cover:  "/assets/instacode.png"

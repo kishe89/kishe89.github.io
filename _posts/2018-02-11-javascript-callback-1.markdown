@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Javascript callback-1"
+title:  "JavaScript callback-1"
 date:   2018-02-11 04:07:00
 author: 김지운
 cover:  "/assets/instacode.png"
@@ -13,7 +13,7 @@ categories: Javascript
 ```
 참고
 
-**Javascript 에서 함수들은 파라미터로 함수를 받을 수 있고 응답으로 함수 또는 결과를 응답할 수 있다.**
+**JavaScript 에서 함수들은 파라미터로 함수를 받을 수 있고 응답으로 함수 또는 결과를 응답할 수 있다.**
 
 ```javascript
 function add(value1,value2,saveFunc){
