@@ -47,7 +47,14 @@ descriptions:
   - cat: Java
     desc: "Posts describing my Java techniques story"
   - cat: Javascript
-    desc: "Posts describing my JavaScript techniques story "
+    desc: "Posts describing my JavaScript techniques story"
+  - cat: Swift
+    desc: "Posts describing my Swift techniques story"
+  - cat: Android
+    desc: "Posts describing my Android techniques story"
+  - cat: IOS
+    desc: "Posts describing my IOS techniques story"
+
 
 # Social icons and sharing options
 #
