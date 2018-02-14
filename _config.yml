@@ -54,7 +54,8 @@ descriptions:
     desc: "Posts describing my Android techniques story"
   - cat: IOS
     desc: "Posts describing my IOS techniques story"
-
+  - cat: Bluemix(IBM)
+    desc: "Posts describing my Bluemix(IBM) techniques story"
 
 # Social icons and sharing options
 #
