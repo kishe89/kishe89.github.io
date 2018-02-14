@@ -506,7 +506,7 @@ describe('Calculator',()=>{
 
 그리고 테스트 결과 또한 정상적으로 오류를 발생시키고있다.
 
-이제 'integer parameters | ArrayParameter add' 테스트와 'N depth ArrayParameter add' 테스트를 성공시켜본다.
+이제 'integer parameters ArrayParameter add' 테스트와 'N depth ArrayParameter add' 테스트를 성공시켜본다.
 
 일단 Array 테스트가 실패하는것은 재귀 호출하는 부분에서 문제가 있다.
 ```javascript
