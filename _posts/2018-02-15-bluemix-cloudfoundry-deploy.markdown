@@ -76,8 +76,7 @@ express 로 생성하게 되면 기본적으로 에러페이지와 인덱스페�
 그리고 아래 명령어를 쳐서 로그인을 시작한다.
 
 ##### bluemix login example
-![Alt text](/assets/Bluemix/cf_deploy_ex/index2.png)
-![Alt text](/assets/Bluemix/cf_deploy_ex/index3.png)
+
 조직 과 영역에 대해서 지정해줘야하는데 잘 모를경우에는
 
 ##### 조직 보는 명령어
@@ -111,15 +110,9 @@ bx cf push AppName -i 1 -m 64M
 bx cf push CFDeployExample -i 1 -m 64M
 ```
 
-명령을 실행하게 되면 아래 이미지와 같이 배포가 시작된다.
+명령을 실행하게 되면 배포가 시작된다.
 
-![Alt text](/assets/Bluemix/cf_deploy_ex/index4.png)
-
-모두 다운 받고 이미지 생성하고 배포하고 나면 인스턴스가 실행되며 아래처럼 뜰 것이다.
-
-![Alt text](/assets/Bluemix/cf_deploy_ex/index5.png)
-
-인스턴스에 대한 간략한 정보와 함께 URL 이 표시되어있다.
+모두 다운 받고 이미지 생성하고 배포하고 나면 인스턴스가 실행되며 인스턴스에 대한 간략한 정보와 함께 URL 이 표시되어있다.
 
 해당 URL 로 접속해보면 정상접속이 된다.
 
