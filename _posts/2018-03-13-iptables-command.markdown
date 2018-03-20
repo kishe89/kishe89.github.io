@@ -223,7 +223,7 @@ nat 테이블을 사용하여 IP masquerading 하거나 mangle 테이블을 사�
 
 대략 여기까지가 기본적인 옵션 및 명령어 작성에 대한 내용이었다.
 
-이제 DNAT 등 추가적인 내용은 docker 및 firewall 설정하면서 업데이트 해야겠다.
+이제 DNAT, Masquerade 등 추가적인 내용은 docker 및 firewall 설정하면서 업데이트 해야겠다.
 
 다음번 포스팅은 실제 라즈베리 파이에 docker 이미지로 mongodb 설치한 내용과 docker 컨테이너 포트 설정 및 방화벽 설정을 작업하는 내용을 정리한다.
 
