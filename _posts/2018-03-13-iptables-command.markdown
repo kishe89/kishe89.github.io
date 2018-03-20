@@ -51,7 +51,7 @@ iptables [-t <table-name>] <command> <chain-name> <parameter-1> \
 /lib/modules/<kernel-version>/kernel/net/ipv4/netfilter/ directory
 ```
 
-2. command :
+* command :
     - `-A` : 체인에 해당 룰이 없을 때 특정 체인의 끝에 룰을 추가한다.
     - `-C` : 유저의 특정 룰들을 더하기 전에 체크한다. iptables 의 구조를 완벽하게 작성하는데 도움을 준다.
     - `-D` : 룰을 삭제한다.
