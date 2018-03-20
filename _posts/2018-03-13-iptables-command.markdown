@@ -42,6 +42,7 @@ iptables [-t <table-name>] <command> <chain-name> <parameter-1> \
     - filter : 네트워크 패킷을 제어하는 기본 테이블
     - nat : 새로운 커넥션을 만들고 네트워크 주소를 변환하는데 사용되는 패킷을 변환하는데 사용된다.
     - mangle : 특정 유형의 패킷 변경에 사용된다.
+
 ```
 기본 테이블 말고도 테이블을 작성할 수있다.
 
