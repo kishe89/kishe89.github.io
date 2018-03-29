@@ -56,6 +56,8 @@ descriptions:
     desc: "Posts describing my IOS techniques story"
   - cat: DB
     desc: "Posts describing my DB techniques story"
+  - cat: Electron
+    desc: "Posts describing my Electron techniques story"
   - cat: Bluemix(IBM)
     desc: "Posts describing my Bluemix(IBM) techniques story"
 
