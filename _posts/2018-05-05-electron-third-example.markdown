@@ -621,7 +621,7 @@ makeRequest 의 url만드는 부분은 수정되어야할 부분이다.
 [emit-cheatsheet]:https://socket.io/docs/emit-cheatsheet/
 [axios]:https://github.com/axios/axios
 [포스팅]:https://kishe89.github.io/electron/2018/04/04/electron-second-example.html
-[socekt.io]:https://socket.io/
+[socket.io]:https://socket.io/
 [mongoose]:http://mongoosejs.com/
 [Electron]:https://electronjs.org/
 [BrowserWindow]:https://electronjs.org/docs/api/browser-window
