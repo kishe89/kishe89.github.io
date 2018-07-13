@@ -58,6 +58,8 @@ descriptions:
     desc: "Posts describing my DB techniques story"
   - cat: Electron
     desc: "Posts describing my Electron techniques story"
+  - cat: Electron Lecture
+    desc: "My Electron Lecture Movie description"
   - cat: Bluemix(IBM)
     desc: "Posts describing my Bluemix(IBM) techniques story"
 
