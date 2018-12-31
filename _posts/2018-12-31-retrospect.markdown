@@ -156,6 +156,7 @@ categories: Posts
 2. 2일 1 커밋
 3. Dart & kotlin 공부
 4. 해커랭크 1일 1문제 풀기
+5. Unity 공부
 
 모두 즐거운 2019년 되세요.
 
