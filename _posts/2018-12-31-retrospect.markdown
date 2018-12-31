@@ -34,7 +34,7 @@ categories: Posts
 ##### Github Activity
 ![Alt text](/assets/Posts/githubActivity2018.png)
 ##### Gitlab Activity
-![Alt text](/assets/Posts/gitlabActivity2018.png)
+![Alt text](/assets/Posts/gitlabAcitivity2018.png)
 
 잔디를 열심히 심어주지 못한 내 자신에게 미안해지는 화면이다.
 
