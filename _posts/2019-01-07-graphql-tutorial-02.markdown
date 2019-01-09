@@ -227,7 +227,7 @@ playground의 좌측에 질의를 입력할 수 있는 창이있는데 그곳에
 의미는 쿼리에 정의해놓은 hello와 people을 요청하고 결과를 반환받는것이다.
 
 입력하고 중앙에 동그라미 안에 화살표가 그려진 실행버튼을 클릭하면 아래처럼 쿼리 결과가 보인다.
-![Alt text](/assets/Posts/graphql_tutorial06.png)
+![Alt text](/assets/Posts/graphql_tutorial07.png)
 
 자 오른쪽 창에서 people에서 age만 지워보고 실행해보자 그러면 age는 가져오질 않는걸 볼 수 있다.
 
