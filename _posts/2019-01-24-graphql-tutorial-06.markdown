@@ -116,8 +116,6 @@ signUp, sendEmail, 메일에 있는 링크 클릭 순으로 하면된다.
 
 자 정상적으로 emailVerificationStatus가 변경된걸 볼 수 있다.
 
-자 이메일 인증이 되기 전까지는 로그인이 안되도록 signIn에 다음과 같이 코드를 추가한다.
-
 ##### ./src/resolvers/UserResolver.ts
 ```typescript
 @Query(returns => String, { nullable: true, description: 'Find One User' })
