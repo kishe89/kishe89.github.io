@@ -181,3 +181,4 @@ false인 경우는 동일한 값이 아니므로 비밀번호가 유효하지 �
 [Graphql Tutorial 3]:https://kishe89.github.io/javascript/2019/01/13/graphql-tutorial-03.html
 [Graphql Tutorial 4]:https://kishe89.github.io/javascript/2019/01/19/graphql-tutorial-04.html
 [Graphql Tutorial 5]:https://kishe89.github.io/javascript/2019/01/23/graphql-tutorial-05.html
+[Graphql Tutorial 6]:https://kishe89.github.io/javascript/2019/01/24/graphql-tutorial-06.html
