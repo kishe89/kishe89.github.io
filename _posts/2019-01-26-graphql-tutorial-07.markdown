@@ -167,6 +167,7 @@ false인 경우는 동일한 값이 아니므로 비밀번호가 유효하지 �
 3. [Graphql Tutorial 3]
 4. [Graphql Tutorial 4]
 5. [Graphql Tutorial 5]
+6. [Graphql Tutorial 6]
 
 
 [안전한 패스워드 저장]:https://d2.naver.com/helloworld/318732
