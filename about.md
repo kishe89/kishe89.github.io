@@ -7,12 +7,14 @@ permalink: /about/
 <img src="{{ site.baseurl }}/assets/profile-placeholder.jpeg" title="Profile Picture" class="profile">
 
 #### 이름 - 김지운 
-##### 나이 - 29세
+##### 나이 - 31세
 
 - 순천대학교 졸업
 - 댓츠잇 개발자로 근무했었음(2015-09-01 ~ 2017-11-31)
-- 2017-11-15 ~ 현재 개인프로젝트 MyWay(지도 공유 서비스) 진행중
-- 새로운 시작에 설레고 있음.
+- 2017-11-15 ~ 2018-1-31 개인프로젝트 MyWay(지도 공유 서비스) 개발
+- 2018-2-1 ~ 2018-6-31 개인프로젝트 게이머 타겟 채팅 서비스 개발.
+- 2017-06-01 ~ 2017-09-01 인프런 [Electron과 NodeJS 그리고 Socket.io를 이용한 채팅 어플리케이션 개발] 강의 제작
+- 2018-12-1 ~ 현재 JJSoft Backend developer 재직중.
 
 ---
 
@@ -72,3 +74,4 @@ permalink: /about/
 [pocheon]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_kyj_client
 [farm]: https://play.google.com/store/apps/details?id=thatzit.co.kr.towntouras2
 [festival]: https://play.google.com/store/apps/details?id=thatzit.co.kr.festivalstamptour
+[Electron과 NodeJS 그리고 Socket.io를 이용한 채팅 어플리케이션 개발]: https://www.inflearn.com/course/electron-2
