@@ -73,12 +73,10 @@ Hello there.
     "util": "^0.12.1"
   }
 }
-
+```
 저는 index.js를 메인스크립트로 지정하고 start 스크립트를 `node ./index`로 index.js 를 실행하도록 하였습니다.
 
 해서 우리가 원하는 기능의 코드를 index.js 아래와 같이 작성해봅니다.
-
-```
 ##### index.js
 ```javascript
 const fs = require('fs')
