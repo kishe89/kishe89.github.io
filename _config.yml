@@ -56,6 +56,8 @@ descriptions:
     desc: "Posts describing my IOS techniques story"
   - cat: DB
     desc: "Posts describing my DB techniques story"
+  - cat: 일상
+    desc: "일상생활 & 잡다구리"
   - cat: Electron
     desc: "Posts describing my Electron techniques story"
   - cat: Electron Lecture
@@ -79,7 +81,6 @@ descriptions:
 #     desc: Follow me on Twitter            # Description to display as link title, etc
 #     share: true                           # Include in the "Share" section of posts
 social:
-
   - name: GitHub
     icon: github
     username: kishe89
@@ -98,13 +99,13 @@ social:
 # These are for automatically generating sharing metadata for FB and Twitter
 # OS Protocol is for sharing the source of your site, if you're interested. For more, see osprotocol.com
 protocols:
-    fb_image: "/assets/icon.png"
-    fb_image_width: 612
-    fb_image_height: 605
-    fb_image_type: "image/png"
+  fb_image: "/assets/icon.png"
+  fb_image_width: 612
+  fb_image_height: 605
+  fb_image_type: "image/png"
 
-    twitter_image: "/assets/icon.png"
+  twitter_image: "/assets/icon.png"
 
-    os_repo: "https://github.com/kishe89/kishe89.github.io"
-    os_rcs_type: "git"
-    os_src: "git@github.com:kishe89/kishe89.github.io.git"
+  os_repo: "https://github.com/kishe89/kishe89.github.io"
+  os_rcs_type: "git"
+  os_src: "git@github.com:kishe89/kishe89.github.io.git"
