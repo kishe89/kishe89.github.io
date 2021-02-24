@@ -33,7 +33,7 @@ permalink: /about/
 
 ---
 
-##### 진행한 프로젝트
+##### 진행한 프로젝트(THATZIT)
 
 |고객|앱 이름|작업 내용|앱 링크|
 |---|---|---|---|
@@ -57,6 +57,9 @@ permalink: /about/
 |농어촌공사|농촌여행|안드로이드(Java) 100%,아이폰(Swift) 50%, Backend(node js) 100%|[농촌여행 앱 다운][farm]|
 |댓츠잇|축제 스탬프투어|Backend(node js) 100%|[축제스탬프 앱 다운][festival]|
 
+##### 진행한 프로젝트(JJSOFT)
+
+닥터로(DR.LAW) 백엔드 작업: [DRLAW]
 
 [shinan]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_shinan_client
 [gongju]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_gongju_client
@@ -75,3 +78,4 @@ permalink: /about/
 [farm]: https://play.google.com/store/apps/details?id=thatzit.co.kr.towntouras2
 [festival]: https://play.google.com/store/apps/details?id=thatzit.co.kr.festivalstamptour
 [Electron과 NodeJS 그리고 Socket.io를 이용한 채팅 어플리케이션 개발]: https://www.inflearn.com/course/electron-2
+[DRLAW]: https://www.drlaw.io/
