@@ -59,7 +59,10 @@ permalink: /about/
 
 ##### 진행한 프로젝트(JJSOFT)
 
-닥터로(DR.LAW) 백엔드 작업: [DRLAW]
+|고객|앱 이름|작업 내용|앱 링크|
+|---|---|---|---|
+|로펌(더불어섬, 법무법인한중, 법률사무소 푸른봄, 법률사무소 의율, 법무법인 준)|DR.LAW|Backend(node js) 90%| [DRLAW]|
+
 
 [shinan]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_shinan_client
 [gongju]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_gongju_client
