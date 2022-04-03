@@ -7,7 +7,7 @@ permalink: /about/
 <img src="{{ site.baseurl }}/assets/profile-placeholder.jpeg" title="Profile Picture" class="profile">
 
 ##### 이름 - 김지운 
-##### 나이 - 31세
+##### 나이 - 34세
 
 ### 업무
 
