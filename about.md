@@ -16,14 +16,18 @@ permalink: /about/
 - 업무 : 클라이언트, 서버 설계(Bluemix), 데이터 모델링(RDBMS : Mysql, NoSQL: Mongodb, store: redis), REST API개발, 클라이언트 UI작업, 클라이언트 로직 작업, Util 프로그램 작성
 - 개발 서비스: 모바일 스탬프 투어.
 - 성과 : 개발한 앱을 기반으로 개발팀 1명(본인) 에서 개발팀 4명까지 팀 성장.
+
 ---
+
 ##### JJSOFT 에서 업무.
 - 직위 : 사원
 - 업무 : 데이터 모델링(MongoDB), 검색 개발(elastic search), GraphQL API 개발 등 백엔드 개발. 테스트 작성.
 - 개발 서비스: DR.Law
 - 주요 작업 기능: 전부.
 - 성과 : MVP 개발.
+
 ---
+
 ##### SoundGym 에서 업무.
 - 직위 : 사원
 - 업무 : 데이터 모델링(MongoDB, Firebase Realtime database), Rest API 개발 등 백엔드 개발.
