@@ -54,6 +54,7 @@ permalink: /about/
 - MongoDB
 - Redis
 - Bluemix(Ibm Cloud) Pass
+- AWS
 - DevOps
 - C
 - C++
