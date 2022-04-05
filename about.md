@@ -59,6 +59,24 @@ permalink: /about/
 - C++
 
 ---
+##### 진행한 프로젝트(SoundGym)
+백엔드(커뮤니티 API) - [사운드짐홈페이지]
+
+[사운드짐홈페이지]: https://soundgym.kr/ 
+
+백엔드 - [사운드짐Android]
+
+[사운드짐Android]: https://play.google.com/store/apps/details?id=com.soundgym.app&hl=ko&gl=US
+
+---
+
+##### 진행한 프로젝트(JJSOFT)
+
+|고객|앱 이름|작업 내용|앱 링크|
+|---|---|---|---|
+|로펌(더불어섬, 법무법인한중, 법률사무소 푸른봄, 법률사무소 의율, 법무법인 준)|DR.LAW|Backend(node js) 90%| [DRLAW]|
+
+---
 
 ##### 진행한 프로젝트(THATZIT)
 
@@ -84,11 +102,6 @@ permalink: /about/
 |농어촌공사|농촌여행|안드로이드(Java) 100%,아이폰(Swift) 50%, Backend(node js) 100%|[농촌여행 앱 다운][farm]|
 |댓츠잇|축제 스탬프투어|Backend(node js) 100%|[축제스탬프 앱 다운][festival]|
 
-##### 진행한 프로젝트(JJSOFT)
-
-|고객|앱 이름|작업 내용|앱 링크|
-|---|---|---|---|
-|로펌(더불어섬, 법무법인한중, 법률사무소 푸른봄, 법률사무소 의율, 법무법인 준)|DR.LAW|Backend(node js) 90%| [DRLAW]|
 
 
 [shinan]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_shinan_client
