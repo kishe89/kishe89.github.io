@@ -58,6 +58,8 @@ descriptions:
     desc: "Posts describing my DB techniques story"
   - cat: 일상
     desc: "일상생활 & 잡다구리"
+  - cat: 재테크
+    desc: "재테크"
   - cat: Electron
     desc: "Posts describing my Electron techniques story"
   - cat: Electron Lecture
