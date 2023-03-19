@@ -36,7 +36,6 @@ categories: Javascript
 어차피 유튜브 영상작업 및 외부에 들고 다닐 목적으로 개인적으로 갤럭시 북3 프로 360 를 구매하여서 사용중이기에  
 회사 맥북은 들고 다닐일이 없어졌다.  
 갤럭시 북3 프로 360은 만약 삼성 제품들 특히 폴드와 갤럭시 태블릿을 주요 모바일 기기로 사용한다면 강추한다.
-<iframe src="https://coupa.ng/cdEAX6" width="120" height="240" frameborder="0" scrolling="no" referrerpolicy="unsafe-url"></iframe>
 
 퀫쉐어, 스크린레코더, 스크린플로우, 세컨드 스크린등 주변 기기와 함께 사용하는데 도움이 되는 기능들을 많이 제공하고 퀄리티도 많이 좋아졌다.
 
