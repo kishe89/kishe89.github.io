@@ -33,11 +33,14 @@ categories: Javascript
 비용이 무서워서 자주 못 돌리는건 이런 자동화의 큰 장점중 하나인 자주, 막, 겁 없이 코드를 실행해보는 환경구성과는 맞지 않기때문에  
 회사 개발팀의 `React-Native` 테승트&빌드&배포는 내 회사 맥북을 호스트로 사용하도록 구성했다.
 
-어차피 유튜브 영상작업 및 외부에 들고 다닐 목적으로 개인적으로 Galaxy Book3 pro 를 구매하여서 사용중이기에  
-회사 맥북은 들고 다닐일이 없어졌다.
-
+어차피 유튜브 영상작업 및 외부에 들고 다닐 목적으로 개인적으로 갤럭시 북3 프로 360 를 구매하여서 사용중이기에  
+회사 맥북은 들고 다닐일이 없어졌다.  
+갤럭시 북3 프로 360은 만약 삼성 제품들 특히 폴드와 갤럭시 태블릿을 주요 모바일 기기로 사용한다면 강추한다.
 <iframe src="https://coupa.ng/cdEAX6" width="120" height="240" frameborder="0" scrolling="no" referrerpolicy="unsafe-url"></iframe>
 
+퀫쉐어, 스크린레코더, 스크린플로우, 세컨드 스크린등 주변 기기와 함께 사용하는데 도움이 되는 기능들을 많이 제공하고 퀄리티도 많이 좋아졌다.
+
+잠시 원래 내용으로 돌아와서 
 
 [Fastlane]:https://fastlane.tools
 [Github Self Hosted-Runner]:https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
