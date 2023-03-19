@@ -40,7 +40,17 @@ categories: Javascript
 
 퀫쉐어, 스크린레코더, 스크린플로우, 세컨드 스크린등 주변 기기와 함께 사용하는데 도움이 되는 기능들을 많이 제공하고 퀄리티도 많이 좋아졌다.
 
-잠시 원래 내용으로 돌아와서 
+잠시 원래 내용으로 돌아와서 남는 `OSX` 및 `XCODE` 실행 가능한 기기가 있다면 셀프 호스팅 하는게 좀 더 싸게 돌릴 수 있느 방법이다.
+
+대신 조금의 품이 더 들어가는건 어쩔 수 없다.
+
+이제 해야하는 작업들에 대해서 보도록 한다.
+
+### Github Self Hosted Runner 세팅 및 설치.
+
+먼저 Github actions 를 호스팅할  기기에 Runner 세팅을 해줘야한다.
+
+
 
 [Fastlane]:https://fastlane.tools
 [Github Self Hosted-Runner]:https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
