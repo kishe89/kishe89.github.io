@@ -48,6 +48,8 @@ descriptions:
     desc: "Posts describing my Java techniques story"
   - cat: Javascript
     desc: "Posts describing my JavaScript techniques story"
+  - cat: NestJS
+    desc: "NestJS use case"
   - cat: Swift
     desc: "Posts describing my Swift techniques story"
   - cat: Android
