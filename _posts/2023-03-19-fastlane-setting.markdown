@@ -150,7 +150,296 @@ export LANG=en_US.UTF-8
 
 키파일은 base64 encoding 해서 올리고 실행 action 에서 다시 디코딩해서 파일출력해서 사용하도록 한다..
 
+### Fastlane 플러그인 설치.
+
+다양한 플러그인들이 있지만 일단 안드로이드 기준으로 아래와 같이 추가한다.
+
+> - [fastlane-plugin-versioning_android]
+> - [fastlane-plugin-load_json]
+> - [fastlane-plugin-firebase_app_distribution]
+
+각각 안드로이드 스토어 버전정보 가지고 오고 gradle 버전 세팅하는 플러그인.
+
+lane 작성시 필요한 정보들 json 으로 로딩할 떄 사용할 Json 파싱 플러그인.
+
+그리고 Firebase App Distribution 을 이용한 appTester 로 배포 위한 플러그인.
+
+### Fastlane lane 작성
+
+먼저 스토어 업로드 레인 실행전 한번은 스토어에 올려야 한다.
+
+> #### bumpVersionName lane(for android)
+>
+> ```ruby
+>   desc "update versionName"
+>   lane :bumpVersionName do
+>       android_set_version_name(
+>       version_name: version_name
+>   )
+>   end
+> ```
+>
+> `android build.gradle`(app 수준) 의 `versionName` 을 세팅하는 lane 입니다.
+>
+> ```gradle
+> defaultConfig {
+>   applicationId "com.newmetafitrn"
+>   minSdkVersion rootProject.ext.minSdkVersion
+>   targetSdkVersion rootProject.ext.targetSdkVersion
+>   testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+>   versionCode 6
+>   multiDexEnabled true
+>   versionName "0.0.72"
+> }
+> ```
+>
+> 위와 같이 **app 수준의** `build.gradle` 의 `defaultConfig` 의 `versionName` 을 세팅해줍니다.
+> version_name 파라미터는 package.json 의 version 을 따라가며 package.json 의 버전은 standard-version 으로 bump 합니다.
+
+> #### bumpVersion lane(for android)
+>
+> ```ruby
+>   desc "update version(All)"
+>   lane :bumpVersion do
+>       version_code = google_play_track_version_codes(
+>           package_name: app_id,
+>           track: "internal",
+>           json_key: json_key_file_path,
+>       )[0]
+>       version_code = version_code.to_i > 0 ? version_code.to_i + 1 : 2
+>       android_set_version_name(
+>           version_name: version_name
+>       )
+>       android_set_version_code(
+>           version_code: version_code
+>       )
+>   end
+> ```
+>
+> android play store 의 track 버전 코드를 `google_play_track_version_codes` 함수로 가지고 와서 `versionName` 과 `versionCode` 를 세팅 및 bump 해주는 lane 입니다.
+> `versionName` 은 **bump** 하지는 않으며 **bumping** 된 `package.json` 의 `version` 을 세팅하며 versionCode 는 스토어에 이전에 배포된 `versionCode` 를 가지고 와서 `+1` 해줍니다.
+
+> #### buildAPK lane(for android)
+>
+> ```ruby
+>   desc "Build APK"
+>   lane :buildAPK do
+>       gradle(
+>           task: "clean assembleRelease"
+>       )
+>   end
+> ```
+>
+> **Release** 용 **APK** 빌드하는 lane 입니다.
+
+> #### build lane(for android)
+>
+> ```ruby
+>   desc "Build Bundle"
+>   lane :build do
+>       gradle(
+>           task: "bundle",
+>           build_type: "Release"
+>       )
+>   end
+> ```
+>
+> **Release** 용 **AAB** bundle 하는 lane 입니다.
+
+> #### deployInternalDraft lane(for android)
+>
+> ```ruby
+>   desc "Deploy a new version to the Google Play(internal-draft)"
+>   lane :deployInternalDraft do
+>       version_code = google_play_track_version_codes(
+>           package_name: app_id,
+>           track: "internal",
+>           json_key: json_key_file_path,
+>       )[0]
+>       version_code = version_code.to_i > 0 ? version_code.to_i + 1 : 2
+>       android_set_version_code(
+>           version_code: version_code
+>       )
+>       gradle(
+>           task: "clean bundle",
+>           build_type: "Release",
+>           properties: {
+>               'versionName' => version_name,
+>               'versionCode' => version_code
+>           }
+>       )
+>       upload_to_play_store(
+>           package_name: app_id,
+>           version_name: version_name,
+>           version_code: version_code,
+>           track: 'internal',
+>           release_status: 'draft',
+>           aab: './app/build/outputs/bundle/release/app-release.aab'
+>       )
+>       createdTag = git_tag(
+>           version_name,
+>           version_code,
+>           'internal'
+>       )
+>     slack(
+>        message: appName + " App successfully Deploy a new version to the Google Play",
+>        channel: "#31-service-qc",  # Optional, by default will post to the default channel configured for the POST URL.
+>        success: true,        # Optional, defaults to true.
+>        payload: {  # Optional, lets you specify any number of your own Slack attachments.
+>            "Platform" => "Android",
+>            "Build Date" => Time.new.to_s,
+>            "Built by" => "FastLane",
+>        },
+>        default_payloads: [:git_branch, :git_author], # Optional, lets you specify default payloads to include. Pass an empty array to suppress all the default payloads.
+>        attachment_properties: { # Optional, lets you specify any other properties available for attachments in the slack API (see https://api.slack.com/docs/attachments).
+>                   # This hash is deep merged with the existing properties set using the other properties above. This allows your own fields properties to be appended to the existing fields that were created using the `payload` property for instance.
+>            thumb_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4gb-fCQcI1W9pmVafFhEWE85hlQQPnNRBDdtvLC7LRw&s",
+>            fields: [{
+>              title: "VersionTag",
+>              value: createdTag,
+>              short: true
+>            },{
+>              title: "Publish Track&ReleaseStatus",
+>              value: "internal-draft",
+>              short: true
+>            }]
+>        }
+>    )
+>   end
+> ```
+>
+> android play store 의 내부 테스트 **track** 에 **draft** 상태로 **publish** 하고 **publish** 한 `versionName`, `versionCode`, `track` 을 태그 생성해서 푸시하는 lane
+> 업로드는 bundle 해서 AAB 를 올린다.  
+> 생성되는 tag 포맷은 `${version_name}-${code}-${track}`이다.  
+> draft 로 올라가므로 최종적으로 내부 테스트에 배포하기 위해서는 플레이 콘솔에 가서 직접 배포해주도록 한다.
+
+> #### deployProduction lane(for android)
+>
+> ```ruby
+>   desc "Deploy a new version to the Google Play(production)"
+>   lane :deployProduction do
+>       version_code = google_play_track_version_codes(
+>           package_name: app_id,
+>           track: "internal",
+>           json_key: json_key_file_path,
+>       )[0]
+>       version_code = version_code.to_i > 0 ? version_code.to_i + 1 : 2
+>       android_set_version_code(
+>           version_code: version_code
+>       )
+>       gradle(
+>           task: "clean bundle",
+>           build_type: "Release",
+>           properties: {
+>               'versionName' => version_name,
+>               'versionCode' => version_code
+>           }
+>       )
+>       upload_to_play_store(
+>           package_name: app_id,
+>           version_name: version_name,
+>           version_code: version_code,
+>           track: 'production',
+>           release_status: 'complete',
+>           aab: './app/build/outputs/bundle/release/app-release.aab'
+>       )
+>       createdTag = git_tag(
+>           version_name,
+>           version_code,
+>           'production'
+>       )
+>     slack(
+>        message: appName + " App successfully Deploy a new version to the Google Play",
+>        channel: "#31-service-qc",  # Optional, by default will post to the default channel configured for the POST URL.
+>        success: true,        # Optional, defaults to true.
+>        payload: {  # Optional, lets you specify any number of your own Slack attachments.
+>            "Platform" => "Android",
+>            "Build Date" => Time.new.to_s,
+>            "Built by" => "FastLane",
+>        },
+>        default_payloads: [:git_branch, :git_author], # Optional, lets you specify default payloads to include. Pass an empty array to suppress all the default payloads.
+>        attachment_properties: { # Optional, lets you specify any other properties available for attachments in the slack API (see https://api.slack.com/docs/attachments).
+>                   # This hash is deep merged with the existing properties set using the other properties above. This allows your own fields properties to be appended to the existing fields that were created using the `payload` property for instance.
+>            thumb_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4gb-fCQcI1W9pmVafFhEWE85hlQQPnNRBDdtvLC7LRw&s",
+>            fields: [{
+>              title: "VersionTag",
+>              value: createdTag,
+>              short: true
+>            },{
+>              title: "Publish Track&ReleaseStatus",
+>              value: "production-complete",
+>              short: true
+>            }]
+>        }
+>    )
+>   end
+> ```
+>
+> android play store 에 production track 에 배포하고 태그 생성하는 lane 이다.  
+
+> #### distribute lane(for android)
+>
+> ```ruby
+>   desc "Firebase distribute"
+>   lane :distribute do
+>       version_code = google_play_track_version_codes(
+>           package_name: app_id,
+>           track: "internal",
+>           json_key: json_key_file_path,
+>       )[0]
+>       version_code = version_code.to_i > 0 ? version_code.to_i : 2
+>       android_set_version_code(
+>           version_code: version_code
+>       )
+>       gradle(
+>           task: "clean assembleRelease",
+>           properties: {
+>               'versionName' => version_name,
+>               'versionCode' => version_code
+>           }
+>       )
+>       firebase_app_distribution(
+>           app: "앱아이디",
+>           groups: "internal-test",
+>           apk_path: "./app/build/outputs/apk/release/app-release.apk",
+>           service_credentials_file: json_key_file_path,
+>           release_notes: "Lots of amazing new features to test out!"
+>       )
+>       createdTag = git_tag(
+>           version_name,
+>           version_code,
+>           'internal-app-distribution'
+>       )
+>     slack(
+>        message: appName + " App successfully Deploy a new version to the App Tester",
+>        channel: "#31-service-qc",  # Optional, by default will post to the default channel configured for the POST URL.
+>        success: true,        # Optional, defaults to true.
+>        payload: {  # Optional, lets you specify any number of your own Slack attachments.
+>            "Platform" => "Android",
+>            "Build Date" => Time.new.to_s,
+>            "Built by" => "FastLane",
+>        },
+>        default_payloads: [:git_branch, :git_author], # Optional, lets you specify default payloads to include. Pass an empty array to suppress all the default payloads.
+>        attachment_properties: { # Optional, lets you specify any other properties available for attachments in the slack API (see https://api.slack.com/docs/attachments).
+>                   # This hash is deep merged with the existing properties set using the other properties above. This allows your own fields properties to be appended to the existing fields that were created using the `payload` property for instance.
+>            thumb_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4gb-fCQcI1W9pmVafFhEWE85hlQQPnNRBDdtvLC7LRw&s",
+>            fields: [{
+>              title: "VersionTag",
+>              value: createdTag,
+>              short: true
+>            },{
+>              title: "Publish Track&ReleaseStatus",
+>              value: "internal-draft",
+>              short: true
+>            }]
+>        }
+>    )
+>   end
+> ```
 
 [Fastlane]:https://fastlane.tools
 [Github Self Hosted-Runner]:https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
 [Github Actions Execution Time multiple]:https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#minute-multipliers
+[fastlane-plugin-versioning_android]: https://github.com/beplus/fastlane-plugin-versioning_android
+[fastlane-plugin-load_json]: https://github.com/KrauseFx/fastlane-plugin-load_json
+[fastlane-plugin-firebase_app_distribution]: https://github.com/fastlane/fastlane-plugin-firebase_app_distribution
