@@ -31,7 +31,7 @@ categories: Javascript
 실제 [Fastlane]에 이것저것 `lane`을 작성하고 `lane`에 기능들을 추가하게 되면 실행시간은 상당히 늘어날 수 있는데  
 이 때 기본 `실행시간의 * 10` 이라는건 상당한 비용이다.(일반적으로 테스트 돌리는 Ubuntu 에 비하면 그냥 단순 계산해서 10배 비용)  
 비용이 무서워서 자주 못 돌리는건 이런 자동화의 큰 장점중 하나인 자주, 막, 겁 없이 코드를 실행해보는 환경구성과는 맞지 않기때문에  
-회사 개발팀의 `React-Native` 테승트&빌드&배포는 내 회사 맥북을 호스트로 사용하도록 구성했다.
+회사 개발팀의 `React-Native` 테스트&빌드&배포는 내 회사 맥북을 호스트로 사용하도록 구성했다.
 
 어차피 유튜브 영상작업 및 외부에 들고 다닐 목적으로 개인적으로 갤럭시 북3 프로 360 를 구매하여서 사용중이기에  
 회사 맥북은 들고 다닐일이 없어졌다.  
@@ -48,6 +48,54 @@ categories: Javascript
 ### Github Self Hosted Runner 세팅 및 설치.
 
 먼저 Github actions 를 호스팅할  기기에 Runner 세팅을 해줘야한다.
+
+먼저 Runner 를 설치할 유저 계정을 하나 만들어서 분리해준다.(OSX 사용자 계정)
+
+그리고 [Github Self Hosted-Runner] 에서 설명하는대로 필요한 스크립트등을 다운받는다.
+
+1. Github.com 에서 러너를 추가할 조직 resource(조직, 개인 등등) 를 선택한다.
+2. 해당 조직 리소스의 Settings 탭을 눌러서 setting 페이지를 띄운다.
+3. sidebar 의 actions 를 클릭해서 펜딩된곳에서 Runners 를 선택한다.
+4. New Runner 를 클릭하고 New Self-hosted runner 를 선택한다.
+5. runner 가 동작할 Os image 및 architecture(x64, arm64, arm32) 를 선택한다. 인텍맥이면 x64 아니면 arm64 or 32 를 선택하면 된다.
+6. 다운로드페이지가 뜨거나 다운로드 시작되고 필요한 파일 및 스크립트가 다운로드된다.
+7. 터미널을 열어서(윈도우는 관리자 권한으로) 각 스크립트를 실행한다.(윈도우는 c 드라이브에 application-runner 디렉토리로 압축 푸는걸 추천한다.)
+8. config 스크립트는 runner application 을 등록한다.(러너를 서비스로 등록하는건 추가적으로 스크립트 실행이 필요하다.)
+
+환경별로 8번은 다르므로 추가적으로 환경별로 적으면 다음과 같다.
+
+일단 압축푼 디렉토리가 `application-runner` 라고 가정하고 한다.
+해당 디렉토리에 보면 `svc.sh` 스크립트가 있을거다.
+
+일단 맥, 윈도우, 리눅스 순서로 적는다.
+```bash
+On Mac
+./svc.sh stop
+./svc.sh install
+./svc.sh start
+```
+Mac 에서는 위와 같이 먼저 현재 실행중인 runner application 을 중단하고 설치하고 시작한다.
+실행중인 runner application 이 없이 초기 설치라면 stop 은 안해도 되지만 아니라면 해주도록 한다.
+
+
+윈도우에서는 power shell(관리자 권한) 을 이용해서 아래와 같이 등록한다.
+```bash
+On Windows
+Stop-Service "actions.runner.*"
+Start-Service "actions.runner.*"
+Get-Service "actions.runner.*"
+```
+해서 마지막 Get-Service 스크립트가 정상 동작해서 동작중인 러너가뜨면 정상 시작 된것이다.
+
+*추가적으로 윈도우의 경우 runner 를 다시 등록하는 경우에는 Github 페이지에서 앞의 1~8 까지를 다시 해서 해야한다.*
+
+리눅스에서는 아래와 같이 등록한다.
+```bash
+On Linux
+sudo ./svc.sh stop
+sudo ./svc.sh install
+sudo ./svc.sh start
+```
 
 
 
