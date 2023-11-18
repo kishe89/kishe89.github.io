@@ -90,6 +90,7 @@ Get-Service "actions.runner.*"
 *추가적으로 윈도우의 경우 runner 를 다시 등록하는 경우에는 Github 페이지에서 앞의 1~8 까지를 다시 해서 해야한다.*
 
 리눅스에서는 아래와 같이 등록한다.
+
 ```bash
 On Linux
 sudo ./svc.sh stop
@@ -97,6 +98,59 @@ sudo ./svc.sh install
 sudo ./svc.sh start
 ```
 
+마지막으로 만든 OSX 사용자 계정에게 지금 runner 를 등록한 계정 dir에 대한 모든 권한을 주도록 한다.
+
+혹시 설치에 및 실행에 문제가 있었다면 아래를 참고하도록 한다.
+
+```
+{User}/Library/Logs/actions.runner.{...}/stderr.log의 내용을 살펴본다.
+error log가 Operation not permitted 등 권한 관련 error 라면, bash 터미널의 권한 설정을 확인하고, 권한을 부여한다.
+```
+
+### Fastlane 필요 내용 설치.
+일단 Fastlane 의 lane 은 ruby 를 이용해 작성하고 실행한다. 이를 위해서 ruby 설치를 먼저 진행한다.
+```
+Notice
+내 환경에서만 발생하는지는 모르겠지만 아래와 같은 이슈가 있었다.
+공개된 GitHub action 플러그인중 ruby 설치 action 이 있지만 해당 action 에서 필요한 파라미터중 OSX 의 버전이 있는데 detect 를 못한다.
+(runner 와 workflow 그리고 호스트 ENV 세팅해도 detect 안됨)
+그래서 Manual 로 설치해야한다.
+```
+
+위의 이유로 인해 Github action 사용 하지 않고 manual 로 설치한다.(osx 기본 ruby 는 사용하지 않도록 한다.)
+
+1. 일단 환경 변경의 용이성을 위해 가상 환경을 지원하는 `rbenv` 를 설치한다.
+2. `rbenv` 로 프로젝트에서 사용하는 ruby 버전에 맞는 ruby 를 설치한다.
+
+```
+# Customize to your needs...
+export PATH="$HOME/kimjiwoon/.rbenv/shims:$PATH"
+# load rbenv automatically
+eval "$(rbenv init -)"
+```
+각자 사용하는 shell 의 환경설정 파일에 rbenv 실행경로를 추가해주고 `source` 나 각자의 터미널에 맞는 명령어로 환경설정을 다시 로드한다.
+
+3. `openssl@1.1` 을 설치한다.(설치 할 때의 Ruby 버전과 ReactNative 버전 호환성 문제 없는 최신 버전으로)
+
+```
+# openSSL
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
+```
+각자 사용하는 shell 의 환경설정 파일에 openssl 실행경로를 세팅해준다.(위의 경우는 homebrew 로 설치했음.)
+
+4. Fastlane 배포에 사용할 메타 정보를 환경변수로 세팅해준다.
+
+```
+# FastLane locale settings
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+```
+
+그리고 추가적으로 앱 signing 키, 파베크레덴셜등 민감정보는 프로젝트의 git ignore 로 ignore 시키고
+
+레파지토리 혹은 조직의 Github Secrets 에 등록해서 사용하도록 한다.
+
+키파일은 base64 encoding 해서 올리고 실행 action 에서 다시 디코딩해서 파일출력해서 사용하도록 한다..
 
 
 [Fastlane]:https://fastlane.tools
