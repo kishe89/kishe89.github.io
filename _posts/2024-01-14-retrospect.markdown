@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "2023년 회고록"
-date:   2024-01-14 19:00:00
+date:   2024-01-14 00:00:00
 author: 김지운
 cover:  "/assets/instacode.png"
-categories: Posts
+categories: "Posts"
 ---
 
 ### 들어가며
