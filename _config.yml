@@ -62,6 +62,12 @@ descriptions:
     desc: "일상생활 & 잡다구리"
   - cat: 재테크
     desc: "재테크"
+  - cat: 컴퓨터시스템응용기술사
+    desc: "컴퓨터시스템응용기술사"
+  - cat: 정보관리기술사
+    desc: "정보관리기술사"
+  - cat: 회계사
+    desc: "회계사"
   - cat: Electron
     desc: "Posts describing my Electron techniques story"
   - cat: Electron Lecture
