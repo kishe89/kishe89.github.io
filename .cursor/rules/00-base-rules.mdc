@@ -1,0 +1,13 @@
+---
+description: Project Base Rule
+globs:
+alwaysApply: true
+---
+
+- Existing code must **never be deleted**.
+- All newly generated code must **always be created separately** from the existing code.
+- This is a Jekyll-based GitHub Pages blog project.
+- All new posts must be created in the `_posts` directory with proper front matter.
+- Follow Jekyll conventions for file naming and directory structure.
+- Use Korean language for blog content and comments.
+- Maintain the existing theme and layout structure.

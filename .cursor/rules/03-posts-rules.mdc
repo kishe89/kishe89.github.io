@@ -1,0 +1,158 @@
+---
+description: Jekyll Blog Posts Naming and Template Rules
+globs: ["_posts/*"]
+alwaysApply: true
+---
+
+# Jekyll Blog Posts Naming and Template Rules
+
+## File Naming Convention
+
+### Standard Format
+All blog posts must follow the Jekyll naming convention:
+```
+YYYY-MM-DD-title.markdown
+```
+
+### Examples from the project:
+- `2024-03-02-HDC-EP-analyze.markdown`
+- `2023-07-30-nestjs-install.markdown`
+- `2018-01-04-java-refactoring-00-intro.markdown`
+- `2019-01-01-graphql-tutorial-01.markdown`
+- `2018-12-31-retrospect.markdown`
+
+### Naming Rules:
+1. **Date Format**: Always use `YYYY-MM-DD` format
+2. **Title Format**: Use lowercase with hyphens, no spaces
+3. **File Extension**: Always use `.markdown`
+4. **Series Posts**: Use numbered suffixes (e.g., `-01`, `-02`, `-00-intro`)
+5. **Special Characters**: Avoid special characters except hyphens
+
+## Front Matter Template
+
+### Required Front Matter Structure:
+```yaml
+---
+layout: post
+title:  "Post Title in Korean"
+date:   YYYY-MM-DD HH:MM:SS
+author: 김지운
+cover:  "/assets/instacode.png"
+categories: CategoryName
+---
+```
+
+### Front Matter Fields:
+
+#### Required Fields:
+- **layout**: Always set to `"post"`
+- **title**: Post title in Korean (use double quotes)
+- **date**: Publication date and time in `YYYY-MM-DD HH:MM:SS` format
+- **author**: Always set to `"김지운"`
+- **categories**: One of the predefined categories
+
+#### Optional Fields:
+- **cover**: Cover image path (default: `"/assets/instacode.png"`)
+
+### Available Categories:
+Based on `_config.yml`, use one of these categories:
+- `Posts` - General posts
+- `Java` - Java-related content
+- `Javascript` - JavaScript-related content
+- `NestJS` - NestJS framework content
+- `Swift` - Swift programming content
+- `Android` - Android development content
+- `IOS` - iOS development content
+- `DB` - Database-related content
+- `일상` - Daily life posts
+- `재테크` - Investment/finance posts
+- `컴퓨터시스템응용기술사` - Computer system application engineer
+- `정보관리기술사` - Information management engineer
+- `회계사` - Accountant
+- `Electron` - Electron framework content
+- `Electron Lecture` - Electron lecture content
+- `Bluemix(IBM)` - IBM Bluemix content
+
+## Content Structure Guidelines
+
+### Standard Post Structure:
+1. **Introduction Section**: Start with `### 들어가며` (Introduction)
+2. **Main Content**: Use appropriate heading levels (`###`, `####`, `#####`)
+3. **Code Blocks**: Use proper language tags for syntax highlighting
+4. **Images**: Reference images from `/assets/Posts/` directory
+5. **Links**: Use markdown link format with reference-style links at the end
+
+### Content Writing Rules:
+1. **Language**: Write content in Korean
+2. **Code Examples**: Include proper syntax highlighting
+3. **Images**: Store in `/assets/Posts/` directory
+4. **Links**: Use reference-style links at the end of the post
+5. **Structure**: Use clear headings and subheadings
+
+### Code Block Examples:
+```markdown
+```java
+// Java code example
+public class Example {
+    // code here
+}
+```
+
+```typescript
+// TypeScript code example
+const example = () => {
+    // code here
+}
+```
+```
+
+### Image References:
+```markdown
+![Alt text](/assets/Posts/image-name.png)
+```
+
+### Link References:
+```markdown
+[Link Text]:https://example.com
+```
+
+## Post Types and Patterns
+
+### Tutorial Series:
+- Use numbered suffixes: `-01`, `-02`, `-03`
+- Include introduction post with `-00-intro`
+- Example: `java-refactoring-00-intro.markdown`
+
+### Technology Posts:
+- Include technology name in title
+- Use appropriate category
+- Examples: `nestjs-install.markdown`, `graphql-tutorial-01.markdown`
+
+### Retrospective Posts:
+- Use `retrospect` in filename
+- Usually posted at year-end
+- Example: `2018-12-31-retrospect.markdown`
+
+### Analysis Posts:
+- Use `analyze` in filename
+- Include subject in title
+- Example: `2024-03-02-HDC-EP-analyze.markdown`
+
+## Best Practices
+
+1. **Consistency**: Always follow the same front matter structure
+2. **Categories**: Choose the most appropriate category from the predefined list
+3. **Images**: Use consistent image naming and store in proper directories
+4. **Code**: Include syntax highlighting for all code examples
+5. **Links**: Use reference-style links for better readability
+6. **Korean Content**: Write all content in Korean as per project requirements
+7. **Date Format**: Always use the exact date format specified
+8. **Cover Images**: Use the default cover image unless a specific one is needed
+
+## File Organization
+
+- All posts go in the `_posts/` directory
+- No subdirectories within `_posts/`
+- Images referenced in posts should be in `/assets/Posts/`
+- Use descriptive filenames that reflect the content
+- Maintain chronological order by date prefix

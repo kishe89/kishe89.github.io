@@ -1,0 +1,94 @@
+---
+description: Jekyll Blog Directory Structure Rules
+globs:
+alwaysApply: true
+---
+
+# Jekyll Blog Project Directory Structure Rules
+
+## Core Jekyll Directories
+
+### `_posts/` - Blog Posts
+- **Purpose**: Directory for storing all blog posts
+- **File naming convention**: `YYYY-MM-DD-title.markdown` format
+- **Content**: Technical blog posts (Java, JavaScript, NestJS, Swift, Android, iOS, DB, Electron, GraphQL, etc.)
+- **Examples**: `2024-03-02-HDC-EP-analyze.markdown`, `2023-07-30-nestjs-install.markdown`
+
+### `_layouts/` - Page Layouts
+- **Purpose**: Jekyll page layout templates
+- **Files**:
+  - `default.html`: Default layout
+  - `post.html`: Blog post layout
+  - `page.html`: General page layout
+  - `about_page.html`: About page layout
+  - `archive.html`: Archive page layout
+
+### `_includes/` - Reusable Components
+- **Purpose**: HTML components reused across multiple pages
+- **Files**:
+  - `header.html`: Site header
+  - `footer.html`: Site footer
+  - `head.html`: HTML head section
+  - `advertisement.html`, `advertisementitem.html`: Advertisement-related components
+  - `page_divider.html`: Page divider
+
+### `_sass/` - SCSS Stylesheets
+- **Purpose**: SCSS files for site styling
+- **Structure**:
+  - `_layout.scss`: Main layout styles
+  - `base/`: Base styles (buttons, forms, grid, typography, etc.)
+  - `bourbon/`: Bourbon CSS framework
+  - `neat/`: Neat grid system
+
+## Static File Directories
+
+### `assets/` - Static Assets
+- **Purpose**: Images, icons, and other static files
+- **Structure**:
+  - `icons/`: Favicons and app icons (Android, Apple, MS)
+  - `Posts/`: Blog post related images
+  - `Bluemix/`, `Electron/`, `javascript_tdd_image/`: Technology-specific images
+  - `header_image.jpg`, `icon.png`, `logo.png`: Site main images
+
+### `css/` - Compiled CSS
+- **Purpose**: CSS files compiled from SCSS
+- **File**: `main.scss` (automatically compiled to CSS by Jekyll)
+
+### `js/` - JavaScript Files
+- **Purpose**: Client-side JavaScript files
+
+## Configuration and Meta Files
+
+### Root Level Files
+- `_config.yml`: Jekyll site configuration (title, URL, plugins, categories, etc.)
+- `Gemfile`, `Gemfile.lock`: Ruby dependency management
+- `index.html`: Homepage
+- `about.md`: About page
+- `posts.html`: Post listing page
+
+### SEO and Feed Files
+- `feed.xml`: RSS feed
+- `naverfeed.xml`: Naver feed
+- `robots.txt`: Search engine crawling rules
+- `ads.txt`: Advertisement-related settings
+
+### CI/CD and License
+- `circle.yml`: CircleCI configuration
+- `LICENSE.md`: License information
+- `README.md`: Project description
+
+## File Creation Rules
+
+1. **New Posts**: Create in `_posts/` directory with `YYYY-MM-DD-title.markdown` format
+2. **New Layouts**: Create in `_layouts/` directory with `.html` extension
+3. **New Components**: Create in `_includes/` directory with `.html` extension
+4. **New Styles**: Create in `_sass/` directory with `_` prefix and `.scss` extension
+5. **New Images**: Store in appropriate subfolder under `assets/` directory
+6. **New Pages**: Create at root level with `.html` or `.md` extension
+
+## Important Notes
+
+- Jekyll special directories (`_posts`, `_layouts`, `_includes`, `_sass`) start with underscore
+- Use lowercase and hyphens for all file names
+- Organize image files by category under `assets/` directory
+- Make configuration changes only in `_config.yml`
