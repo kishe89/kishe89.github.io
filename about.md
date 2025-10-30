@@ -37,20 +37,20 @@ permalink: /about/
 
 ---
 
-##### Remo 에서 업무.
+##### 리모 에서 업무.
 - 직위 : 팀장
-- 업무 : 데이터 모델링(MySQL), Rest API 개발 등 백엔드 개발, Android 클라이언트 개발. 프론트 & 백엔드 DevOps 문화 정착을 위한 노력(CI&CD 구성 및 유틸리티 어플리케이션, 팀 리뷰, 반기마다 기술 발표등)
-- 개발 서비스: 웰에이징 라이프, 메타핏. FineFit 백엔드
-- 주요 작업 기능: 앱 및 AI 서버에서 사용하는 API 개발, 앱(웹앱) 브릿지 및 네이티브 처리 작업(파일처리, MLKit, 센서제어).
-- 성과 : 작업중.
+- 업무 : 데이터 모델링(MySQL,MongoDB), RestAPI 등 백엔드 개발 및 네이티브 앱 기능 개발
+- 개발 서비스: 파인핏(키오스크,유저), 헤이미러(스마트미러), 현장통 2.0, 힐링안과
+- 주요 작업 기능: AI 결과물 중계 및 검증용 서버, 클라이언트 fastlane 작업, 모든 서버 ci/cid 파이프라인 세팅, 문자인증(sms,lms, short link), 이메일 인증, cognito iam 기반 s3 및 cloudfront 접근제어(쿠키기반), 영상 스트리밍(hls, dash Aws video foundation 서비스 이용), 웹소켓 이용한 위치 정보 기반 알림(현장통 2.0의 위급 사이렌), ML kit 이용한 분석 및 분석 결과 JS bridge, 그 외 앱의 모든 API(백오피스용, 앱용, 고객사 대시보드등)
+- 성과 : 회사 주력 제품인 파인핏 개발 및 서비스. 현장통 2.0 DAU 300 ~ 500 달성
 
 ---
 ### 재직 기간
 
 - 댓츠잇: 2015.9.1 ~ 2017.11.31
 - JJSOFT: 2018.12.1 ~ 2021.2.28
-- SoundGym: 2021.6.17 ~ 2022.5.1
-- Remo: 2022.5.26 ~ 현재.
+- SoundGym: 2021.6.17 ~ 2022.5.23
+- 리모: 2022.5.23 ~ 현재.
 
 ---
 
@@ -70,14 +70,11 @@ permalink: /about/
 - C++
 
 ---
-##### 진행한 프로젝트(SoundGym)
-백엔드(커뮤니티 API) - [사운드짐홈페이지]
+##### 진행한 프로젝트(사운드짐)
 
-[사운드짐홈페이지]: https://soundgym.kr/ 
-
-백엔드 - [사운드짐Android]
-
-[사운드짐Android]: https://play.google.com/store/apps/details?id=com.soundgym.app&hl=ko&gl=US
+|고객|앱 이름|작업 내용|앱 링크|
+|---|---|---|---|
+|사운드짐|사운드짐|백엔드(node js) 100%|[사운드짐 앱 다운][soundgym] / [사운드짐 웹사이트][soundgym-web]|
 
 ---
 
@@ -89,7 +86,7 @@ permalink: /about/
 
 ---
 
-##### 진행한 프로젝트(THATZIT)
+##### 진행한 프로젝트(댓츠잇)
 
 |고객|앱 이름|작업 내용|앱 링크|
 |---|---|---|---|
@@ -107,9 +104,6 @@ permalink: /about/
 |남원|남원 스탬프투어|안드로이드(Java) 100%, Backend(node js) 100%|[남원 앱 다운][namwon]|
 |보성|보성 스탬프투어|안드로이드(Java) 100%, Backend(node js) 100%|[보성 앱 다운][boseong]|
 |포천|포천 스탬프투어|안드로이드(Java) 100%, Backend(node js) 100%|[포천 앱 다운][pocheon]|
-
-|고객|앱 이름|작업 내용|앱 링크|
-|---|---|---|---|
 |농어촌공사|농촌여행|안드로이드(Java) 100%,아이폰(Swift) 50%, Backend(node js) 100%|[농촌여행 앱 다운][farm]|
 |댓츠잇|축제 스탬프투어|Backend(node js) 100%|[축제스탬프 앱 다운][festival]|
 
@@ -131,5 +125,19 @@ permalink: /about/
 [pocheon]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_kyj_client
 [farm]: https://play.google.com/store/apps/details?id=thatzit.co.kr.towntouras2
 [festival]: https://play.google.com/store/apps/details?id=thatzit.co.kr.festivalstamptour
+[soundgym]: https://play.google.com/store/apps/details?id=com.soundgym.app
+[soundgym-web]: https://www.soundgym.kr/
+[tongpeoples-app]: https://play.google.com/store/apps/details?id=com.tongpeoples.user
+[tongpeoples-web]: https://www.tongpeoples.com/
+[finefit-kiosk]: https://play.google.com/store/apps/details?id=org.remofine.kiosk
+[finefit-user]: https://play.google.com/store/apps/details?id=org.remofine.user
+[finefit-web]: https://finefit.kr/
 [Electron과 NodeJS 그리고 Socket.io를 이용한 채팅 어플리케이션 개발]: https://www.inflearn.com/course/electron-2
 [DRLAW]: https://www.drlaw.io/
+
+##### 진행한 프로젝트(리모)
+
+|고객|앱 이름|작업 내용|앱 링크|
+|---|---|---|---|
+|통하는사람들|현장통2.0|백엔드(node js) 100%|[현장통2.0 앱 다운][tongpeoples-app] / [현장통2.0 관리자 및 랜딩][tongpeoples-web]|
+|리모|파인핏|백엔드(node js) 100%|[파인핏 키오스크][finefit-kiosk] / [파인핏 유저][finefit-user] / [파인핏 랜딩][finefit-web]|
