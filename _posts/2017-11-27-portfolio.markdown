@@ -27,11 +27,17 @@ categories: Posts
 - 개발 서비스: 사운드짐
 - 주요 작업 기능: 커뮤니티 기능(피드), 사용자 건강데이터(걸음 수, 체중, etc), 사용자 활동 기반 레벨 및 포인트 시스템, b2b 회원 시스템 추가. 기존 작업되어있던 Firebase database 부분중 일부 데이터 집계등 쿼리를 위해 MongoDB 마이그레이션 작업. 테스트 작성.
 - 성과 : 커뮤니티 기능 및 사용자 이탈을 막기 위한 기능들 개발했지만 DAU 나 MAU 에 크게 변화 없었음. 그러나 느리게나마 게시글 및 댓글 작성과 팔로우 기능을 이용하는 비중 늘어나는 점은 확인.
+##### 리모 에서 업무.
+- 직위 : 팀장
+- 업무 : 데이터 모델링(MySQL,MongoDB), RestAPI 등 백엔드 개발 및 네이티브 앱 기능 개발
+- 개발 서비스: 파인핏(키오스크,유저), 헤이미러(스마트미러), 현장통 2.0, 힐링안과
+- 주요 작업 기능: AI 결과물 중계 및 검증용 서버, 클라이언트 fastlane 작업, 모든 서버 ci/cid 파이프라인 세팅, 문자인증(sms,lms, short link), 이메일 인증, cognito iam 기반 s3 및 cloudfront 접근제어(쿠키기반), 영상 스트리밍(hls, dash Aws video foundation 서비스 이용), 웹소켓 이용한 위치 정보 기반 알림(현장통 2.0의 위급 사이렌), ML kit 이용한 분석 및 분석 결과 JS bridge, 그 외 앱의 모든 API(백오피스용, 앱용, 고객사 대시보드등)
 ### 재직 기간
 
 - 댓츠잇: 2015.9.1 ~ 2017.11.31
 - JJSOFT: 2018.12.1 ~ 2021.2.28
-- SoundGym: 2021.6.17 ~ 현재.
+- SoundGym: 2021.6.17 ~ 2022.5.23
+- 리모: 2022.5.23 ~ 현재.
 ---
 
 ### 프로젝트(위치 기반 스탬프투어)
@@ -62,7 +68,14 @@ categories: Posts
 |댓츠잇|축제 스탬프투어|Backend(node js) 100%|[축제스탬프 앱 다운][festival]|
 
 
-[shinan]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_shinan_client
+### 프로젝트(사운드짐)
+
+|고객|앱 이름|작업 내용|앱 링크|
+|---|---|---|---|
+|사운드짐|사운드짐|백엔드(node js) 100%|[사운드짐 앱 다운][soundgym]|
+
+
+[shinan]: https://play.google.com/store/apps/details?id=com.thatzitյ.kjw.stamptour_shinan_client
 [gongju]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_gongju_client
 [yeoju]: https://play.google.com/store/apps/details?id=com.thatzit.stamptour_yeoju_client
 [yeonggwang]: https://play.google.com/store/apps/details?id=com.thatzit.stamptour_yeonggwang_client
@@ -78,3 +91,4 @@ categories: Posts
 [pocheon]: https://play.google.com/store/apps/details?id=com.thatzit.kjw.stamptour_kyj_client
 [farm]: https://play.google.com/store/apps/details?id=thatzit.co.kr.towntouras2
 [festival]: https://play.google.com/store/apps/details?id=thatzit.co.kr.festivalstamptour
+[soundgym]: https://play.google.com/store/apps/details?id=com.soundgym.app
