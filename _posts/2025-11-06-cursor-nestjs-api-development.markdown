@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "cursor 이용한 NestJS API 개발"
-date:   2025-11-06 22:00:00
+date:   2025-11-06 04:00:00
 author: 김지운
 cover:  "/assets/instacode.png"
 categories: NestJS
