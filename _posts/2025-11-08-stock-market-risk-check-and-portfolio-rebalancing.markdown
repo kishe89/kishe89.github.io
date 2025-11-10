@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "주식시장 리스크 점검 및 포트폴리오 리밸런싱"
-date:   2025-11-08 22:00:00
+date:   2025-11-08 04:00:00
 author: 김지운
 cover:  "/assets/instacode.png"
 categories: 재테크
