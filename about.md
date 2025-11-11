@@ -58,7 +58,7 @@ permalink: /about/
 
 ##### 기술 스택
 
-- Javascript(node js runtime)
+- Javascript(node js runtime) & typescript
 - Java
 - MySQL
 - Swift

@@ -30,7 +30,7 @@ def markdown_to_pdf(md_file, pdf_file):
     # Jekyll 변수 처리 ({{ site.baseurl }} 등)
     md_content = md_content.replace('{{ site.baseurl }}', '')
     
-    # 마크다운을 HTML로 변환
+    # 마크다운을 HTML로 변환 (기본적으로 HTML 태그는 유지됨)
     html_content = markdown.markdown(
         md_content,
         extensions=['tables', 'fenced_code', 'nl2br']
@@ -44,7 +44,11 @@ def markdown_to_pdf(md_file, pdf_file):
         def replace_path(match):
             rel_path = match.group(1)
             abs_path = base_dir / rel_path.lstrip('/')
-            return f'src="{abs_path}"'
+            # 파일 존재 여부 확인
+            if not abs_path.exists():
+                print(f"경고: 이미지 파일을 찾을 수 없습니다: {abs_path}")
+            # Windows 경로를 file:// URL 형식으로 변환
+            return f'src="{abs_path.as_uri()}"'
         return re.sub(pattern, replace_path, html)
     
     html_content = fix_image_paths(html_content)
